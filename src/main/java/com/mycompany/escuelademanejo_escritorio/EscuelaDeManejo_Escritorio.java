@@ -7,10 +7,13 @@ package com.mycompany.escuelademanejo_escritorio;
 /**
  *
  * @author Usuario
+ * 
  */
+
 public class EscuelaDeManejo_Escritorio {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        new ConexionBD();
     }
 }
