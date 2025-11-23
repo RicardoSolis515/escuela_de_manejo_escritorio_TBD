@@ -4,6 +4,14 @@
  */
 package vistas;
 
+import Modelos.Instructor;
+import editorTabla.ButtonEditor;
+import editorTabla.ButtonRenderer;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Usuario
@@ -14,7 +22,10 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
      * Creates new form IF_Instructor
      */
     public IF_Instructor() {
+        
         initComponents();
+        
+        generarDatosInstructores();
     }
 
     /**
@@ -26,21 +37,132 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaInstructoresVista = new javax.swing.JTable();
+
+        setMinimumSize(new java.awt.Dimension(660, 425));
+
+        tablaInstructoresVista.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaInstructoresVista);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(79, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    
+    public void generarDatosInstructores() {
+
+    String[] columnas = {"NSS", "Nombre", "Apellido P.", "Apellido M.", "Senior", "Vehículo", "Editar", "Eliminar"};
+
+    // Datos de prueba (puedes cambiarlo luego por tu DAO)
+    Object[][] datos = {
+        {"123", "Juan", "Pérez", "López", true, "ABC-123", "Editar", "Eliminar"},
+        {"456", "María", "García", "Torres", false, "XYZ-789", "Editar", "Eliminar"}
+    };
+
+    DefaultTableModel modeloInstructores = new DefaultTableModel(datos, columnas) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return column == 6 || column == 7;  // Solo Editar y Eliminar
+        }
+    };
+
+    tablaInstructoresVista.setModel(modeloInstructores);
+
+    // Renderers de botones
+    tablaInstructoresVista.getColumn("Editar").setCellRenderer(new ButtonRenderer("Editar"));
+    tablaInstructoresVista.getColumn("Eliminar").setCellRenderer(new ButtonRenderer("Eliminar"));
+
+
+    // -------------------------
+    // BOTÓN EDITAR
+    // -------------------------
+    tablaInstructoresVista.getColumn("Editar").setCellEditor(
+        new ButtonEditor("Editar", e -> {
+
+            int row = Integer.parseInt(e.getActionCommand());
+
+            // Obtener datos del instructor seleccionado
+            Instructor ins = new Instructor();
+            ins.setNSS( tablaInstructoresVista.getValueAt(row, 0).toString() );
+            ins.setNombre( tablaInstructoresVista.getValueAt(row, 1).toString() );
+            ins.setApellidoPat( tablaInstructoresVista.getValueAt(row, 2).toString() );
+            ins.setApellidoMat( tablaInstructoresVista.getValueAt(row, 3).toString() );
+            ins.setSenior( Boolean.parseBoolean(tablaInstructoresVista.getValueAt(row, 4).toString()) );
+            ins.setMatriculaVehiculo( tablaInstructoresVista.getValueAt(row, 5).toString() );
+
+            // Crear el dialogo modal
+            DialalogEdit dialogo = new DialalogEdit(
+                (JFrame) SwingUtilities.getWindowAncestor(tablaInstructoresVista)
+            );
+
+            // Crear ventana interna para editar instructor
+            IF_EditarInstructor ventana = new IF_EditarInstructor(ins);
+
+            dialogo.abrirInternalFrame(ventana);
+            dialogo.setVisible(true);
+        })
+    );
+
+
+
+    // -------------------------
+    // BOTÓN ELIMINAR
+    // -------------------------
+    tablaInstructoresVista.getColumn("Eliminar").setCellEditor(
+        new ButtonEditor("Eliminar", e -> {
+
+            int row = Integer.parseInt(e.getActionCommand());
+            String nss = tablaInstructoresVista.getValueAt(row, 0).toString();
+
+            int r = JOptionPane.showConfirmDialog(null,
+                    "¿Seguro de eliminar al instructor con NSS " + nss + "?",
+                    "Confirmar eliminación",
+                    JOptionPane.YES_NO_OPTION
+            );
+
+            if (r == JOptionPane.YES_OPTION) {
+
+                // Aquí llamas a tu DAO si lo usas (ejemplo):
+                // instructorDAO.eliminar(nss);
+
+                ((DefaultTableModel) tablaInstructoresVista.getModel()).removeRow(row);
+            }
+        })
+    );
+}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaInstructoresVista;
     // End of variables declaration//GEN-END:variables
 }

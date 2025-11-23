@@ -12,7 +12,8 @@ import javax.swing.JInternalFrame;
 /**
  *
  * @author Usuario
- */public class DialalogEdit extends JDialog {
+ */
+public class DialalogEdit extends JDialog {
 
     private JDesktopPane escritorio;
 

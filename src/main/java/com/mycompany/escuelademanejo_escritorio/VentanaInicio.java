@@ -6,6 +6,7 @@ package com.mycompany.escuelademanejo_escritorio;
 
 import java.awt.Point;
 import vistas.IF_Auto;
+import vistas.IF_Instructor;
 
 
 
@@ -159,7 +160,13 @@ public class VentanaInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void limpiarDesktopPane() {
+        DPVistas.removeAll();      // Quita todo
+        DPVistas.repaint();        // Redibuja el área
+    }
+    
     private void btn_autosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_autosActionPerformed
+        limpiarDesktopPane();
         IF_Auto IF = new IF_Auto();
         DPVistas.add(IF);
         IF.setVisible(true);
@@ -168,7 +175,10 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_autosActionPerformed
 
     private void btn_instructoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_instructoresActionPerformed
-        // TODO add your handling code here:
+       limpiarDesktopPane();
+        IF_Instructor IF = new IF_Instructor();
+       DPVistas.add(IF);
+       IF.setVisible(true);
     }//GEN-LAST:event_btn_instructoresActionPerformed
 
     /**

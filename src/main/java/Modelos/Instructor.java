@@ -9,6 +9,7 @@ package Modelos;
  * @author Usuario
  */
 public class Instructor {
+    private String NSS;
     private String nombre;
     private String apellidoPat;
     private String apellidoMat;
@@ -18,7 +19,8 @@ public class Instructor {
     public Instructor(){}
     
     // Constructor
-    public Instructor(String nombre, String apellidoPat, String apellidoMat, boolean senior, String matriculaVehiculo) {
+    public Instructor(String NSS, String nombre, String apellidoPat, String apellidoMat, boolean senior, String matriculaVehiculo) {
+        this.NSS = NSS;
         this.nombre = nombre;
         this.apellidoPat = apellidoPat;
         this.apellidoMat = apellidoMat;
@@ -27,6 +29,14 @@ public class Instructor {
     }
 
     // Getters y Setters
+    public String getNSS(){
+        return NSS;
+    }
+    
+    public void setNSS(String NSS){
+        this.NSS = NSS;
+    }
+    
     public String getNombre() {
         return nombre;
     }
