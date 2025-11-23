@@ -4,9 +4,11 @@
  */
 package vistas;
 
+import Controladores.AutoDAO;
 import Modelos.Auto;
 import editorTabla.ButtonEditor;
 import editorTabla.ButtonRenderer;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -82,18 +84,34 @@ public class IF_Auto extends javax.swing.JInternalFrame {
     
     
     public void generarDatosAutos() {
-    String[] columnas = {"Matricula", "Modelo", "Marca", "Editar", "Eliminar"};
+    String[] columnas = {"Matricula", "Modelo", "Marca", "Asignado","Kilometraje", "Editar", "Eliminar"};
 
     Object[][] datos = {
         {"1", "1", "1", "Editar", "Eliminar"},
         {"2", "2", "2", "Editar", "Eliminar"}
     };
 
-    DefaultTableModel modeloAutos = new DefaultTableModel(datos, columnas) {
+    ArrayList<Auto> autosLista = new AutoDAO().mostrarAutos();
+    
+    ArrayList<Object[]> autosParaMostrar = new ArrayList<Object[]>();
+    
+    for(Auto e : autosLista){
+    autosParaMostrar.add(new Object[]{
+        e.getMatricula(),
+        e.getMarca(),
+        e.getModelo(),
+        e.getKilometraje(),
+        e.isAsignado(),
+        "Editar",
+        "Eliminar"
+    });
+}
+    
+    DefaultTableModel modeloAutos = new DefaultTableModel(autosParaMostrar.toArray(new Object[0][]), columnas) {
         @Override
         public boolean isCellEditable(int row, int column) {
             // Solo las columnas 3 y 4 (Editar y Eliminar) serán editables
-            return column == 3 || column == 4;
+            return column == 5 || column == 6;
         }
     };
 
@@ -116,7 +134,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
             add(new IF_EditarAuto(a).setVisible(true));
             System.out.println(matricula);
             */
-             Auto a = new Auto();
+             Auto a = new AutoDAO().mostrarAuto(matricula);
             DialalogEdit dialogo = new DialalogEdit((JFrame) SwingUtilities.getWindowAncestor(tablaAutosVista));
 
         // Crear el InternalFrame

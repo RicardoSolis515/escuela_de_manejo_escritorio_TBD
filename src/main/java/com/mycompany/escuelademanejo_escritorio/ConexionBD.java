@@ -17,7 +17,7 @@ public class ConexionBD {
             Class.forName("org.postgresql.Driver");
 
             // Datos de conexión
-            String URL = "jdbc:postgresql://localhost:5432/dreamhome";
+            String URL = "jdbc:postgresql://localhost:5432/db_escuela_manejo";
             String usuario = "postgres";
             String contrasena = "1234";
 
@@ -91,7 +91,7 @@ public class ConexionBD {
     // Inicio de sesión opcional
     // ============================
     public boolean loginAttempt(String user, String password) {
-        String URL = "jdbc:postgresql://localhost:5432/dreamhome";
+        String URL = "jdbc:postgresql://localhost:5432/db_escuela_manejo";
 
         try (Connection conn = DriverManager.getConnection(URL, user, password)) {
             return true; // Conexión válida
