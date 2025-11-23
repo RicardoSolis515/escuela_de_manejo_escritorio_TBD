@@ -9,5 +9,62 @@ package Modelos;
  * @author Usuario
  */
 public class Auto {
+    private String matricula;
+    private String marca;
+    private String modelo;
+    private double kilometraje;
+    private boolean asignado;
+    
+    public Auto(){}
+    
+    // Constructor
+    public Auto(String matricula, String marca, String modelo, double kilometraje, boolean asignado) {
+        this.matricula = matricula;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.kilometraje = kilometraje;
+        this.asignado = asignado;
+    }
+
+    // Getters y Setters
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public double getKilometraje() {
+        return kilometraje;
+    }
+
+    public void setKilometraje(double kilometraje) {
+        this.kilometraje = kilometraje;
+    }
+
+    public boolean isAsignado() {
+        return asignado;
+    }
+
+    public void setAsignado(boolean asignado) {
+        this.asignado = asignado;
+    }
     
 }

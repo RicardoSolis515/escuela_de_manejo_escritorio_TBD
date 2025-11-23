@@ -3,11 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.escuelademanejo_escritorio;
-import editorTabla.ButtonEditor;
-import editorTabla.ButtonRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JOptionPane;
-import java.awt.event.ActionListener;
+
+import java.awt.Point;
+import vistas.IF_Auto;
 
 
 
@@ -24,8 +22,8 @@ public class VentanaInicio extends javax.swing.JFrame {
      */
     public VentanaInicio() {
         initComponents();
-        IF_autos.hide();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,9 +41,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         btn_leccion = new javax.swing.JButton();
         btn_cliente = new javax.swing.JButton();
         btn_administradtivos = new javax.swing.JButton();
-        IF_autos = new javax.swing.JInternalFrame();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaAutosVista = new javax.swing.JTable();
+        DPVistas = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,45 +109,24 @@ public class VentanaInicio extends javax.swing.JFrame {
                 .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_administradtivos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         btn_autos.getAccessibleContext().setAccessibleName("btn_auto");
 
-        IF_autos.setVisible(true);
-
-        tablaAutosVista.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tablaAutosVista);
-
-        javax.swing.GroupLayout IF_autosLayout = new javax.swing.GroupLayout(IF_autos.getContentPane());
-        IF_autos.getContentPane().setLayout(IF_autosLayout);
-        IF_autosLayout.setHorizontalGroup(
-            IF_autosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(IF_autosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout DPVistasLayout = new javax.swing.GroupLayout(DPVistas);
+        DPVistas.setLayout(DPVistasLayout);
+        DPVistasLayout.setHorizontalGroup(
+            DPVistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 705, Short.MAX_VALUE)
         );
-        IF_autosLayout.setVerticalGroup(
-            IF_autosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(IF_autosLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+        DPVistasLayout.setVerticalGroup(
+            DPVistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 379, Short.MAX_VALUE)
         );
 
         jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(IF_autos, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(DPVistas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -160,15 +135,14 @@ public class VentanaInicio extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IF_autos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(DPVistas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
-                .addComponent(IF_autos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(DPVistas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -186,9 +160,11 @@ public class VentanaInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_autosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_autosActionPerformed
-        // TODO add your handling code here:
-        IF_autos.setVisible(true);
-        generarDatosAutos();
+        IF_Auto IF = new IF_Auto();
+        DPVistas.add(IF);
+        IF.setVisible(true);
+        
+        
     }//GEN-LAST:event_btn_autosActionPerformed
 
     private void btn_instructoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_instructoresActionPerformed
@@ -199,9 +175,7 @@ public class VentanaInicio extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
-    public void ocultarventanas(){
-        IF_autos.setVisible(false);
-    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -224,65 +198,12 @@ public class VentanaInicio extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new VentanaInicio().setVisible(true));
     }
     
-    public void generarDatosAutos() {
-    String[] columnas = {"Matricula", "Modelo", "Marca", "Editar", "Eliminar"};
-
-    Object[][] datos = {
-        {"1", "1", "1", "Editar", "Eliminar"},
-        {"2", "2", "2", "Editar", "Eliminar"}
-    };
-
-    DefaultTableModel modeloAutos = new DefaultTableModel(datos, columnas) {
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            // Solo las columnas 3 y 4 (Editar y Eliminar) serán editables
-            return column == 3 || column == 4;
-        }
-    };
-
-    tablaAutosVista.setModel(modeloAutos);
-
-    // Renderer (botón visible)
-    tablaAutosVista.getColumn("Editar").setCellRenderer(new ButtonRenderer("Editar"));
-    tablaAutosVista.getColumn("Eliminar").setCellRenderer(new ButtonRenderer("Eliminar"));
-
-    // Editor (acción del botón)
-    tablaAutosVista.getColumn("Editar").setCellEditor(
-        new ButtonEditor("Editar", e -> {
-            int row = Integer.parseInt(e.getActionCommand());
-            String matricula = tablaAutosVista.getValueAt(row, 0).toString();
-
-            // Abre la ventana para editar el auto
-            //new VentanaEditarVehiculo(matricula).setVisible(true);
-        })
-    );
-
-    tablaAutosVista.getColumn("Eliminar").setCellEditor(
-        new ButtonEditor("Eliminar", e -> {
-            int row = Integer.parseInt(e.getActionCommand());
-            String matricula = tablaAutosVista.getValueAt(row, 0).toString();
-
-            int r = JOptionPane.showConfirmDialog(null, 
-                "¿Seguro de eliminar el auto con matrícula " + matricula + "?",
-                "Confirmar eliminación",
-                JOptionPane.YES_NO_OPTION
-            );
-
-            if (r == JOptionPane.YES_OPTION) {
-                // Aquí llamas a tu DAO
-                // autoDAO.eliminar(matricula);
-
-                // Quitar de la tabla
-                ((DefaultTableModel) tablaAutosVista.getModel()).removeRow(row);
-            }
-        })
-    );
-}
+    
 
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JInternalFrame IF_autos;
+    private javax.swing.JDesktopPane DPVistas;
     private javax.swing.JButton btn_administradtivos;
     private javax.swing.JButton btn_autos;
     private javax.swing.JButton btn_cliente;
@@ -290,7 +211,5 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JButton btn_leccion;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tablaAutosVista;
     // End of variables declaration//GEN-END:variables
 }
