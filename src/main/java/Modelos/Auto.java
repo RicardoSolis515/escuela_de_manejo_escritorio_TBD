@@ -12,13 +12,13 @@ public class Auto {
     private String matricula;
     private String marca;
     private String modelo;
-    private double kilometraje;
+    private String kilometraje;
     private boolean asignado;
     
     public Auto(){}
     
     // Constructor
-    public Auto(String matricula, String marca, String modelo, double kilometraje, boolean asignado) {
+    public Auto(String matricula, boolean asignado, String marca, String modelo, String kilometraje) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
@@ -51,11 +51,11 @@ public class Auto {
         this.modelo = modelo;
     }
 
-    public double getKilometraje() {
+    public String getKilometraje() {
         return kilometraje;
     }
 
-    public void setKilometraje(double kilometraje) {
+    public void setKilometraje(String kilometraje) {
         this.kilometraje = kilometraje;
     }
 

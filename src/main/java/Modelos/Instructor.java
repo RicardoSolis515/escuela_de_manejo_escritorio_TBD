@@ -11,8 +11,8 @@ package Modelos;
 public class Instructor {
     private String NSS;
     private String nombre;
-    private String apellidoPat;
-    private String apellidoMat;
+    private String apellidoPaterno;
+    private String apellidoMaterno;
     private boolean senior;
     private String matriculaVehiculo;
     
@@ -22,8 +22,8 @@ public class Instructor {
     public Instructor(String NSS, String nombre, String apellidoPat, String apellidoMat, boolean senior, String matriculaVehiculo) {
         this.NSS = NSS;
         this.nombre = nombre;
-        this.apellidoPat = apellidoPat;
-        this.apellidoMat = apellidoMat;
+        this.apellidoPaterno = apellidoPat;
+        this.apellidoMaterno = apellidoMat;
         this.senior = senior;
         this.matriculaVehiculo = matriculaVehiculo;
     }
@@ -46,19 +46,19 @@ public class Instructor {
     }
 
     public String getApellidoPat() {
-        return apellidoPat;
+        return apellidoPaterno;
     }
 
     public void setApellidoPat(String apellidoPat) {
-        this.apellidoPat = apellidoPat;
+        this.apellidoPaterno = apellidoPat;
     }
 
     public String getApellidoMat() {
-        return apellidoMat;
+        return apellidoMaterno;
     }
 
     public void setApellidoMat(String apellidoMat) {
-        this.apellidoMat = apellidoMat;
+        this.apellidoMaterno = apellidoMat;
     }
 
     public boolean isSenior() {
