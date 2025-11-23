@@ -14,6 +14,12 @@ public class EscuelaDeManejo_Escritorio {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        new ConexionBD();
+        
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                new VentanaLogin();
+            }
+        }).start();
     }
 }

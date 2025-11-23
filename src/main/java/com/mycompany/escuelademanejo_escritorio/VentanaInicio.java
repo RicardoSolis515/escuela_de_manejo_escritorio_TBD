@@ -3,6 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.escuelademanejo_escritorio;
+import editorTabla.ButtonEditor;
+import editorTabla.ButtonRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
+
+
 
 /**
  *
@@ -17,6 +24,7 @@ public class VentanaInicio extends javax.swing.JFrame {
      */
     public VentanaInicio() {
         initComponents();
+        IF_autos.hide();
     }
 
     /**
@@ -28,131 +36,172 @@ public class VentanaInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        btn_autos = new javax.swing.JButton();
+        btn_instructores = new javax.swing.JButton();
+        btn_leccion = new javax.swing.JButton();
+        btn_cliente = new javax.swing.JButton();
+        btn_administradtivos = new javax.swing.JButton();
+        IF_autos = new javax.swing.JInternalFrame();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaAutosVista = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
         jPanel2.setBackground(new java.awt.Color(153, 255, 255));
 
-        jButton2.setBackground(new java.awt.Color(153, 255, 255));
-        jButton2.setForeground(new java.awt.Color(0, 102, 102));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-auto-16.png")); // NOI18N
-        jButton2.setText("Autos");
-        jButton2.setBorderPainted(false);
+        btn_autos.setBackground(new java.awt.Color(153, 255, 255));
+        btn_autos.setForeground(new java.awt.Color(0, 102, 102));
+        btn_autos.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-auto-16.png")); // NOI18N
+        btn_autos.setText("Autos");
+        btn_autos.setBorderPainted(false);
+        btn_autos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_autosActionPerformed(evt);
+            }
+        });
 
-        jButton3.setBackground(new java.awt.Color(153, 255, 255));
-        jButton3.setForeground(new java.awt.Color(0, 102, 102));
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-formación-16.png")); // NOI18N
-        jButton3.setText("Instructores");
-        jButton3.setBorderPainted(false);
+        btn_instructores.setBackground(new java.awt.Color(153, 255, 255));
+        btn_instructores.setForeground(new java.awt.Color(0, 102, 102));
+        btn_instructores.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-formación-16.png")); // NOI18N
+        btn_instructores.setText("Instructores");
+        btn_instructores.setBorderPainted(false);
+        btn_instructores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_instructoresActionPerformed(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(153, 255, 255));
-        jButton4.setForeground(new java.awt.Color(0, 102, 102));
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-lección-16.png")); // NOI18N
-        jButton4.setText("Lecciones");
-        jButton4.setBorderPainted(false);
+        btn_leccion.setBackground(new java.awt.Color(153, 255, 255));
+        btn_leccion.setForeground(new java.awt.Color(0, 102, 102));
+        btn_leccion.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-lección-16.png")); // NOI18N
+        btn_leccion.setText("Lecciones");
+        btn_leccion.setBorderPainted(false);
 
-        jButton5.setBackground(new java.awt.Color(153, 255, 255));
-        jButton5.setForeground(new java.awt.Color(0, 102, 102));
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-estudiante-16.png")); // NOI18N
-        jButton5.setText("Clientes");
-        jButton5.setBorderPainted(false);
+        btn_cliente.setBackground(new java.awt.Color(153, 255, 255));
+        btn_cliente.setForeground(new java.awt.Color(0, 102, 102));
+        btn_cliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-estudiante-16.png")); // NOI18N
+        btn_cliente.setText("Clientes");
+        btn_cliente.setBorderPainted(false);
 
-        jButton6.setBackground(new java.awt.Color(153, 255, 255));
-        jButton6.setForeground(new java.awt.Color(0, 102, 102));
-        jButton6.setText("jButton6");
-        jButton6.setBorderPainted(false);
+        btn_administradtivos.setBackground(new java.awt.Color(153, 255, 255));
+        btn_administradtivos.setForeground(new java.awt.Color(0, 102, 102));
+        btn_administradtivos.setText("Administraativos");
+        btn_administradtivos.setBorderPainted(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_autos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_instructores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_leccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_cliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_administradtivos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(btn_autos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(btn_instructores, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(btn_leccion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addComponent(btn_administradtivos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton2.getAccessibleContext().setAccessibleName("btn_auto");
+        btn_autos.getAccessibleContext().setAccessibleName("btn_auto");
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        IF_autos.setVisible(true);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 253, Short.MAX_VALUE)
+        tablaAutosVista.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaAutosVista);
+
+        javax.swing.GroupLayout IF_autosLayout = new javax.swing.GroupLayout(IF_autos.getContentPane());
+        IF_autos.getContentPane().setLayout(IF_autosLayout);
+        IF_autosLayout.setHorizontalGroup(
+            IF_autosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IF_autosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 41, Short.MAX_VALUE)
+        IF_autosLayout.setVerticalGroup(
+            IF_autosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IF_autosLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(IF_autos, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(IF_autos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(58, Short.MAX_VALUE)
+                .addComponent(IF_autos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_autosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_autosActionPerformed
+        // TODO add your handling code here:
+        IF_autos.setVisible(true);
+        generarDatosAutos();
+    }//GEN-LAST:event_btn_autosActionPerformed
+
+    private void btn_instructoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_instructoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_instructoresActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+    public void ocultarventanas(){
+        IF_autos.setVisible(false);
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -174,15 +223,74 @@ public class VentanaInicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new VentanaInicio().setVisible(true));
     }
+    
+    public void generarDatosAutos() {
+    String[] columnas = {"Matricula", "Modelo", "Marca", "Editar", "Eliminar"};
 
+    Object[][] datos = {
+        {"1", "1", "1", "Editar", "Eliminar"},
+        {"2", "2", "2", "Editar", "Eliminar"}
+    };
+
+    DefaultTableModel modeloAutos = new DefaultTableModel(datos, columnas) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            // Solo las columnas 3 y 4 (Editar y Eliminar) serán editables
+            return column == 3 || column == 4;
+        }
+    };
+
+    tablaAutosVista.setModel(modeloAutos);
+
+    // Renderer (botón visible)
+    tablaAutosVista.getColumn("Editar").setCellRenderer(new ButtonRenderer("Editar"));
+    tablaAutosVista.getColumn("Eliminar").setCellRenderer(new ButtonRenderer("Eliminar"));
+
+    // Editor (acción del botón)
+    tablaAutosVista.getColumn("Editar").setCellEditor(
+        new ButtonEditor("Editar", e -> {
+            int row = Integer.parseInt(e.getActionCommand());
+            String matricula = tablaAutosVista.getValueAt(row, 0).toString();
+
+            // Abre la ventana para editar el auto
+            //new VentanaEditarVehiculo(matricula).setVisible(true);
+        })
+    );
+
+    tablaAutosVista.getColumn("Eliminar").setCellEditor(
+        new ButtonEditor("Eliminar", e -> {
+            int row = Integer.parseInt(e.getActionCommand());
+            String matricula = tablaAutosVista.getValueAt(row, 0).toString();
+
+            int r = JOptionPane.showConfirmDialog(null, 
+                "¿Seguro de eliminar el auto con matrícula " + matricula + "?",
+                "Confirmar eliminación",
+                JOptionPane.YES_NO_OPTION
+            );
+
+            if (r == JOptionPane.YES_OPTION) {
+                // Aquí llamas a tu DAO
+                // autoDAO.eliminar(matricula);
+
+                // Quitar de la tabla
+                ((DefaultTableModel) tablaAutosVista.getModel()).removeRow(row);
+            }
+        })
+    );
+}
+
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JInternalFrame IF_autos;
+    private javax.swing.JButton btn_administradtivos;
+    private javax.swing.JButton btn_autos;
+    private javax.swing.JButton btn_cliente;
+    private javax.swing.JButton btn_instructores;
+    private javax.swing.JButton btn_leccion;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaAutosVista;
     // End of variables declaration//GEN-END:variables
 }
