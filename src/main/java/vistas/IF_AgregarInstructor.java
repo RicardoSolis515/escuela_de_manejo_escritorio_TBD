@@ -9,54 +9,49 @@ import Modelos.Auto;
 import Modelos.Instructor;
 import java.awt.Window;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
  *
  * @author Usuario
  */
-public class IF_EditarInstructor extends javax.swing.JInternalFrame {
+public class IF_AgregarInstructor extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form IF_EditarInstructor
      */
-    public IF_EditarInstructor() {
+    public IF_AgregarInstructor() {
         initComponents();
-    }
-
-    public IF_EditarInstructor(Instructor ins) {
-        initComponents();
-        
-        campo_nss.setText(ins.getNSS());
-    campo_nombre.setText(ins.getNombre());
-    campo_apellidoPat.setText(ins.getApellidoPat());
-    campo_apellidoMat.setText(ins.getApellidoMat());
-
-    // Checkbox / Radio senior
-    rb_senior.setSelected(ins.isSenior());
-    
-        cargarAutosNoAsignados(ins.getMatriculaVehiculo());
+        cargarAutosNoAsignados();
         
     }
+
     
     
-    private void cargarAutosNoAsignados(String matricula) {
+    
+    private void cargarAutosNoAsignados() {
 
     AutoDAO autoDAO = new AutoDAO();
     ArrayList<Auto> autos = autoDAO.mostrarAutosNoAsignados(false);
 
+    caja_autosDisponibles.removeAllItems();
     
-    
-    caja_autosDisponibles.removeAllItems(); // Limpia el combo
-
-    caja_autosDisponibles.addItem(matricula); // Opcional
-
+     
     for (Auto auto : autos) {
         caja_autosDisponibles.addItem(auto.getMatricula());
     }
+    
 }
     
     
+    
+    private void cerrarVentana(){
+        Window window = SwingUtilities.getWindowAncestor(this);
+    if (window != null) {
+        window.dispose();
+    }
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -93,16 +88,20 @@ public class IF_EditarInstructor extends javax.swing.JInternalFrame {
         rb_senior.setText("Senior");
 
         campo_nss.setColumns(10);
-        campo_nss.setText("jTextField1");
+        campo_nss.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campo_nssKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campo_nssKeyTyped(evt);
+            }
+        });
 
         campo_nombre.setColumns(10);
-        campo_nombre.setText("jTextField2");
 
         campo_apellidoPat.setColumns(10);
-        campo_apellidoPat.setText("jTextField3");
 
         campo_apellidoMat.setColumns(10);
-        campo_apellidoMat.setText("jTextField4");
 
         caja_autosDisponibles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -186,15 +185,49 @@ public class IF_EditarInstructor extends javax.swing.JInternalFrame {
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         // TODO add your handling code here:
-        
- 
         Window window = SwingUtilities.getWindowAncestor(this);
     if (window != null) {
         window.dispose();
     }
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
+    private void campo_nssKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_nssKeyTyped
+        // TODO add your handling code here:
+        if(limite())
+            evt.consume();
+        else{
+        char a = evt.getKeyChar();
+        if(!esNumero(a))
+            evt.consume();
+        }
+    }//GEN-LAST:event_campo_nssKeyTyped
 
+    private void campo_nssKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_nssKeyReleased
+        // TODO add your handling code here:
+        if(limite())
+            evt.consume();
+        else{
+        char a = evt.getKeyChar();
+        if(!esNumero(a))
+            evt.consume();
+        }
+    }//GEN-LAST:event_campo_nssKeyReleased
+
+    private boolean limite(){
+        if(campo_nss.getText().length()==10){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private boolean esNumero(char a){
+        if(a>='0'&&a<='9')
+            return true;
+        else
+            return false;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_guardar;

@@ -39,6 +39,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaAutosVista = new javax.swing.JTable();
+        btn_agregar = new javax.swing.JButton();
 
         tablaAutosVista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -53,6 +54,13 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablaAutosVista);
 
+        btn_agregar.setText("Nuevo");
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -60,16 +68,36 @@ public class IF_Auto extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 79, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+        // TODO add your handling code here:
+        
+        DialalogEdit dialogo = new DialalogEdit(
+                (JFrame) SwingUtilities.getWindowAncestor(tablaAutosVista)
+            );
+
+            // Crear ventana interna para editar instructor
+            IF_AgregarAuto ventana = new IF_AgregarAuto();
+
+            dialogo.abrirInternalFrame(ventana);
+            dialogo.setVisible(true);
+    }//GEN-LAST:event_btn_agregarActionPerformed
 
     
     
@@ -172,6 +200,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_agregar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaAutosVista;
     // End of variables declaration//GEN-END:variables

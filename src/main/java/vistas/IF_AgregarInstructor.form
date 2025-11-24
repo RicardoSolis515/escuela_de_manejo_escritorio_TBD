@@ -121,25 +121,25 @@
     <Component class="javax.swing.JTextField" name="campo_nss">
       <Properties>
         <Property name="columns" type="int" value="10"/>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo_nssKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo_nssKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="campo_nombre">
       <Properties>
         <Property name="columns" type="int" value="10"/>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="campo_apellidoPat">
       <Properties>
         <Property name="columns" type="int" value="10"/>
-        <Property name="text" type="java.lang.String" value="jTextField3"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="campo_apellidoMat">
       <Properties>
         <Property name="columns" type="int" value="10"/>
-        <Property name="text" type="java.lang.String" value="jTextField4"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="caja_autosDisponibles">

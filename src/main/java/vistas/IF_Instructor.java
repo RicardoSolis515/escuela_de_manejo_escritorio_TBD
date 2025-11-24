@@ -4,6 +4,7 @@
  */
 package vistas;
 
+import Controladores.AutoDAO;
 import Controladores.InstructorDAO;
 import Modelos.Instructor;
 import editorTabla.ButtonEditor;
@@ -41,6 +42,7 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaInstructoresVista = new javax.swing.JTable();
+        btn_agregar = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(660, 425));
 
@@ -57,6 +59,13 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablaInstructoresVista);
 
+        btn_agregar.setText("Nuevo");
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,17 +74,42 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addComponent(btn_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+        // TODO add your handling code here:
+        
+        //if(true){
+        if(new AutoDAO().mostrarAutos().isEmpty()){
+        JOptionPane.showMessageDialog(this, "No hay vahiculos disponibles para nuevos instructores\nAgrega vehiculos para asignar a instructores nuevos");
+        }else{
+        DialalogEdit dialogo = new DialalogEdit(
+                (JFrame) SwingUtilities.getWindowAncestor(tablaInstructoresVista)
+            );
+
+            // Crear ventana interna para editar instructor
+            IF_AgregarInstructor ventana = new IF_AgregarInstructor();
+
+            dialogo.abrirInternalFrame(ventana);
+            dialogo.setVisible(true);
+                }
+    }//GEN-LAST:event_btn_agregarActionPerformed
 
     
     
@@ -185,6 +219,7 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_agregar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaInstructoresVista;
     // End of variables declaration//GEN-END:variables
