@@ -4,9 +4,11 @@
  */
 package vistas;
 
+import Controladores.InstructorDAO;
 import Modelos.Instructor;
 import editorTabla.ButtonEditor;
 import editorTabla.ButtonRenderer;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -87,8 +89,33 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
         {"123", "Juan", "Pérez", "López", true, "ABC-123", "Editar", "Eliminar"},
         {"456", "María", "García", "Torres", false, "XYZ-789", "Editar", "Eliminar"}
     };
+    
+    ArrayList<Instructor> instructoresLista = new InstructorDAO().mostrarInstructores();
+    
+    ArrayList<Object[]> instructoresParaMostrar = new ArrayList<Object[]>();
+    
+    for(Instructor e : instructoresLista){
+    instructoresParaMostrar.add(new Object[]{
+        e.getNSS(),
+        e.getNombre(),
+        e.getApellidoPat(),
+        e.getApellidoMat(),
+        e.isSenior(),
+        e.getMatriculaVehiculo(),
+        "Editar",
+        "Eliminar"
+    });
+}
+    
+    
+    
+    
+    
+    
+    
+    
 
-    DefaultTableModel modeloInstructores = new DefaultTableModel(datos, columnas) {
+    DefaultTableModel modeloInstructores = new DefaultTableModel(instructoresParaMostrar.toArray(new Object[0][]), columnas) {
         @Override
         public boolean isCellEditable(int row, int column) {
             return column == 6 || column == 7;  // Solo Editar y Eliminar
@@ -109,15 +136,11 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
         new ButtonEditor("Editar", e -> {
 
             int row = Integer.parseInt(e.getActionCommand());
-
+            String NSS = tablaInstructoresVista.getValueAt(row, 0).toString();
+            
             // Obtener datos del instructor seleccionado
-            Instructor ins = new Instructor();
-            ins.setNSS( tablaInstructoresVista.getValueAt(row, 0).toString() );
-            ins.setNombre( tablaInstructoresVista.getValueAt(row, 1).toString() );
-            ins.setApellidoPat( tablaInstructoresVista.getValueAt(row, 2).toString() );
-            ins.setApellidoMat( tablaInstructoresVista.getValueAt(row, 3).toString() );
-            ins.setSenior( Boolean.parseBoolean(tablaInstructoresVista.getValueAt(row, 4).toString()) );
-            ins.setMatriculaVehiculo( tablaInstructoresVista.getValueAt(row, 5).toString() );
+            Instructor ins = new InstructorDAO().mostrarInstructor(NSS);
+            
 
             // Crear el dialogo modal
             DialalogEdit dialogo = new DialalogEdit(

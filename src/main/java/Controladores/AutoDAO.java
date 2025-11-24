@@ -136,4 +136,30 @@ public class AutoDAO {
 
         return lista;
     }
+    
+    
+    public ArrayList<Auto> mostrarAutosNoAsignados(boolean asignados) {
+        ArrayList<Auto> lista = new ArrayList<>();
+        String sql = "SELECT * FROM auto WHERE asignado = " + asignados;
+
+        ResultSet rs = conexionBD.ejecutarIstruccionSQL(sql);
+
+        try {
+            while (rs.next()) {
+                Auto auto = new Auto(
+                        rs.getString("matricula"),
+                        rs.getBoolean("asignado"),
+                        rs.getString("marca"),
+                        rs.getString("modelo"),
+                        rs.getString("kilometraje")
+                );
+
+                lista.add(auto);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
 }

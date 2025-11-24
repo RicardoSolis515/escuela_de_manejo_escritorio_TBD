@@ -85,12 +85,12 @@ public class IF_Auto extends javax.swing.JInternalFrame {
     
     public void generarDatosAutos() {
     String[] columnas = {"Matricula", "Modelo", "Marca", "Asignado","Kilometraje", "Editar", "Eliminar"};
-
+/*
     Object[][] datos = {
         {"1", "1", "1", "Editar", "Eliminar"},
         {"2", "2", "2", "Editar", "Eliminar"}
     };
-
+*/
     ArrayList<Auto> autosLista = new AutoDAO().mostrarAutos();
     
     ArrayList<Object[]> autosParaMostrar = new ArrayList<Object[]>();
@@ -100,8 +100,8 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         e.getMatricula(),
         e.getMarca(),
         e.getModelo(),
-        e.getKilometraje(),
         e.isAsignado(),
+        e.getKilometraje(),
         "Editar",
         "Eliminar"
     });

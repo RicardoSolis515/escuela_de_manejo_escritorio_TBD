@@ -4,7 +4,10 @@
  */
 package vistas;
 
+import Controladores.AutoDAO;
+import Modelos.Auto;
 import Modelos.Instructor;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,7 +24,37 @@ public class IF_EditarInstructor extends javax.swing.JInternalFrame {
 
     public IF_EditarInstructor(Instructor ins) {
         initComponents();
+        
+        campo_nss.setText(ins.getNSS());
+    campo_nombre.setText(ins.getNombre());
+    campo_apellidoPat.setText(ins.getApellidoPat());
+    campo_apellidoMat.setText(ins.getApellidoMat());
+
+    // Checkbox / Radio senior
+    rb_senior.setSelected(ins.isSenior());
+    
+        cargarAutosNoAsignados(ins.getMatriculaVehiculo());
+        
     }
+    
+    
+    private void cargarAutosNoAsignados(String matricula) {
+
+    AutoDAO autoDAO = new AutoDAO();
+    ArrayList<Auto> autos = autoDAO.mostrarAutosNoAsignados(false);
+
+    
+    
+    caja_autosDisponibles.removeAllItems(); // Limpia el combo
+
+    caja_autosDisponibles.addItem(matricula); // Opcional
+
+    for (Auto auto : autos) {
+        caja_autosDisponibles.addItem(auto.getMatricula());
+    }
+}
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
