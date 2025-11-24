@@ -4,6 +4,7 @@
  */
 package vistas;
 
+import Controladores.AutoDAO;
 import Modelos.Auto;
 import java.awt.Window;
 import javax.swing.SwingUtilities;
@@ -30,6 +31,7 @@ public class IF_EditarAuto extends javax.swing.JInternalFrame {
         campo_modelo.setText(a.getModelo());
         campo_kilometraje.setText(""+a.getKilometraje());
         rb_asignado.setSelected(a.isAsignado());
+        rb_asignado.setEnabled(false);
     }
     
     /**
@@ -53,6 +55,7 @@ public class IF_EditarAuto extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
+        campo_matricula.setEditable(false);
         campo_matricula.setColumns(10);
         campo_matricula.setText("jTextField1");
 
@@ -75,6 +78,11 @@ public class IF_EditarAuto extends javax.swing.JInternalFrame {
         });
 
         btn_guardar.setText("Guardar");
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Matricula");
 
@@ -154,6 +162,62 @@ public class IF_EditarAuto extends javax.swing.JInternalFrame {
         window.dispose();
     }
     }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        // TODO add your handling code here:
+        
+
+    String matricula = campo_matricula.getText().trim();
+    String marca = campo_marca.getText().trim();
+    String modelo = campo_modelo.getText().trim();
+    String kilometraje = campo_kilometraje.getText().trim();
+
+
+    // Verificar campos vacíos
+    if (matricula.isEmpty() || marca.isEmpty() || modelo.isEmpty() || kilometraje.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Todos los campos son obligatorios.",
+            "Campos incompletos",
+            javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    // Verificar que el kilometraje sea numérico
+    try {
+        int km = Integer.parseInt(kilometraje);
+        if (km < 0) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "El kilometraje no puede ser negativo.",
+                "Dato inválido",
+                javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+            return;
+        }
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "El kilometraje debe ser un número válido.",
+            "Formato inválido",
+            javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    Auto auto = new Auto(
+        matricula,
+        false,      
+        marca,
+        modelo,
+        kilometraje
+    );
+    
+    new AutoDAO().editarAuto(auto);
+    
+    Window window = SwingUtilities.getWindowAncestor(this);
+    if (window != null) {
+        window.dispose();
+    }
+    }//GEN-LAST:event_btn_guardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

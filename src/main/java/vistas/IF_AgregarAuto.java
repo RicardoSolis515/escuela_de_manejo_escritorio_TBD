@@ -4,6 +4,7 @@
  */
 package vistas;
 
+import Controladores.AutoDAO;
 import Modelos.Auto;
 import java.awt.Window;
 import javax.swing.SwingUtilities;
@@ -20,6 +21,65 @@ public class IF_AgregarAuto extends javax.swing.JInternalFrame {
     public IF_AgregarAuto() {
         initComponents();
     }
+    
+    private Auto validacion() {
+
+    String matricula = campo_matricula.getText().trim();
+    String marca = campo_marca.getText().trim();
+    String modelo = campo_modelo.getText().trim();
+    String kilometraje = campo_kilometraje.getText().trim();
+
+    // Verificar campos vacíos
+    if (matricula.isEmpty() || marca.isEmpty() || modelo.isEmpty() || kilometraje.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Todos los campos son obligatorios.",
+            "Campos incompletos",
+            javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+        return null;
+    }
+
+    // Verificar longitud mínima de la matrícula
+    if (matricula.length() < 6) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "La matrícula debe tener al menos 6 caracteres.",
+            "Matrícula inválida",
+            javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+        return null;
+    }
+
+    // Verificar que el kilometraje sea numérico
+    try {
+        int km = Integer.parseInt(kilometraje);
+        if (km < 0) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "El kilometraje no puede ser negativo.",
+                "Dato inválido",
+                javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+            return null;
+        }
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "El kilometraje debe ser un número válido.",
+            "Formato inválido",
+            javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+        return null;
+    }
+
+    Auto auto = new Auto(
+        matricula,
+        false,      
+        marca,
+        modelo,
+        kilometraje
+    );
+    
+    return auto; // pasó todas las validaciones
+}
+
 
     
     /**
@@ -58,6 +118,11 @@ public class IF_AgregarAuto extends javax.swing.JInternalFrame {
         });
 
         btn_guardar.setText("Guardar");
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Matricula");
 
@@ -130,6 +195,20 @@ public class IF_AgregarAuto extends javax.swing.JInternalFrame {
         window.dispose();
     }
     }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        // TODO add your handling code here:
+        Auto a = validacion();
+        if(a==null){
+            
+        }else{
+            new AutoDAO().agregarAuto(a);
+            Window window = SwingUtilities.getWindowAncestor(this);
+    if (window != null) {
+        window.dispose();
+    }
+        }
+    }//GEN-LAST:event_btn_guardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

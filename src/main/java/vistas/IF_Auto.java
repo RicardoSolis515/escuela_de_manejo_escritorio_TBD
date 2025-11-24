@@ -97,6 +97,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
 
             dialogo.abrirInternalFrame(ventana);
             dialogo.setVisible(true);
+            generarDatosAutos();
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     
@@ -172,6 +173,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         dialogo.abrirInternalFrame(editar);
 
         dialogo.setVisible(true);
+        generarDatosAutos();
         })
     );
 
@@ -189,9 +191,10 @@ public class IF_Auto extends javax.swing.JInternalFrame {
             if (r == JOptionPane.YES_OPTION) {
                 // Aquí llamas a tu DAO
                 // autoDAO.eliminar(matricula);
-
+                new AutoDAO().eliminarAuto(matricula);
                 // Quitar de la tabla
                 ((DefaultTableModel) tablaAutosVista.getModel()).removeRow(row);
+                generarDatosAutos();
             }
         })
     );
