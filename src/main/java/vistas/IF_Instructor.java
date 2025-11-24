@@ -43,8 +43,13 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaInstructoresVista = new javax.swing.JTable();
         btn_agregar = new javax.swing.JButton();
+        campo_busqueda = new javax.swing.JTextField();
+        txt_campoBusqueda = new javax.swing.JLabel();
+        btn_simplificar = new javax.swing.JButton();
 
-        setMinimumSize(new java.awt.Dimension(660, 425));
+        setBorder(null);
+        setMinimumSize(new java.awt.Dimension(660, 370));
+        setPreferredSize(new java.awt.Dimension(660, 370));
 
         tablaInstructoresVista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -66,27 +71,62 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
             }
         });
 
+        campo_busqueda.setColumns(20);
+        campo_busqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campo_busquedaActionPerformed(evt);
+            }
+        });
+        campo_busqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campo_busquedaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campo_busquedaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campo_busquedaKeyTyped(evt);
+            }
+        });
+
+        txt_campoBusqueda.setText("Escribe el NSS del empleado a buscar");
+
+        btn_simplificar.setText("Simplificar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(btn_simplificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_campoBusqueda)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(campo_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
+                        .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btn_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txt_campoBusqueda)
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(campo_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(btn_simplificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -111,20 +151,61 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
                 }
     }//GEN-LAST:event_btn_agregarActionPerformed
 
-    
+    private void campo_busquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_busquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campo_busquedaActionPerformed
+
+    private void campo_busquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_busquedaKeyReleased
+        // TODO add your handling code here:
+        char x = evt.getKeyChar();
+        if(!esNumero(x)||campo_busqueda.getText().length()>=10){
+            if(x!=8)
+                evt.consume();
+        }else{
+            generarDatosInstructores();
+        }
+    }//GEN-LAST:event_campo_busquedaKeyReleased
+
+    private void campo_busquedaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_busquedaKeyPressed
+        // TODO add your handling code here:
+        char x = evt.getKeyChar();
+        if(!esNumero(x)||campo_busqueda.getText().length()>=10){
+            if(x!=8)
+                evt.consume();
+        }else{
+            generarDatosInstructores();
+        }
+    }//GEN-LAST:event_campo_busquedaKeyPressed
+
+    private void campo_busquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_busquedaKeyTyped
+        // TODO add your handling code here:
+        char x = evt.getKeyChar();
+        if(!esNumero(x)||campo_busqueda.getText().length()>=10){
+            if(x!=8)
+                evt.consume();
+        }else{
+            generarDatosInstructores();
+        }
+    }//GEN-LAST:event_campo_busquedaKeyTyped
+
+    private boolean esNumero(char a){
+        if((a>='0'&&a<='9'))
+            return true;
+        else
+            return false;
+    }
     
     
     public void generarDatosInstructores() {
 
     String[] columnas = {"NSS", "Nombre", "Apellido P.", "Apellido M.", "Senior", "Vehículo", "Editar", "Eliminar"};
-
-    // Datos de prueba (puedes cambiarlo luego por tu DAO)
+/*
     Object[][] datos = {
         {"123", "Juan", "Pérez", "López", true, "ABC-123", "Editar", "Eliminar"},
         {"456", "María", "García", "Torres", false, "XYZ-789", "Editar", "Eliminar"}
-    };
+    };*/
     
-    ArrayList<Instructor> instructoresLista = new InstructorDAO().mostrarInstructores();
+    ArrayList<Instructor> instructoresLista = new InstructorDAO().mostrarInstructoresFiltro(campo_busqueda.getText());
     
     ArrayList<Object[]> instructoresParaMostrar = new ArrayList<Object[]>();
     
@@ -220,7 +301,10 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregar;
+    private javax.swing.JButton btn_simplificar;
+    private javax.swing.JTextField campo_busqueda;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaInstructoresVista;
+    private javax.swing.JLabel txt_campoBusqueda;
     // End of variables declaration//GEN-END:variables
 }

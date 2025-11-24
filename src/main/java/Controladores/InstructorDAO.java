@@ -145,4 +145,36 @@ public class InstructorDAO {
 
         return lista;
     }
+    
+    public ArrayList<Instructor> mostrarInstructoresFiltro(String filtro) {
+
+    ArrayList<Instructor> lista = new ArrayList<>();
+    String sql = "SELECT * FROM instructor WHERE nss LIKE ?";
+
+    try (PreparedStatement ps = conexionBD.getConexion().prepareStatement(sql)) {
+
+        ps.setString(1, filtro + "%"); // agrega el comodín correctamente
+
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Instructor i = new Instructor(
+                rs.getString("nss"),
+                rs.getString("nombre"),
+                rs.getString("apellidopaterno"),
+                rs.getString("apellidomaterno"),
+                rs.getBoolean("senior"),
+                rs.getString("matriculavehiculo")
+            );
+            lista.add(i);
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return lista;
+}
+
+    
 }

@@ -7,6 +7,7 @@ package com.mycompany.escuelademanejo_escritorio;
 import java.awt.Point;
 import vistas.IF_Auto;
 import vistas.IF_Instructor;
+import vistas.IF_NoDisponible;
 
 
 
@@ -75,17 +76,32 @@ public class VentanaInicio extends javax.swing.JFrame {
         btn_leccion.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-lección-16.png")); // NOI18N
         btn_leccion.setText("Lecciones");
         btn_leccion.setBorderPainted(false);
+        btn_leccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_leccionActionPerformed(evt);
+            }
+        });
 
         btn_cliente.setBackground(new java.awt.Color(153, 255, 255));
         btn_cliente.setForeground(new java.awt.Color(0, 102, 102));
         btn_cliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-estudiante-16.png")); // NOI18N
         btn_cliente.setText("Clientes");
         btn_cliente.setBorderPainted(false);
+        btn_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_clienteActionPerformed(evt);
+            }
+        });
 
         btn_administradtivos.setBackground(new java.awt.Color(153, 255, 255));
         btn_administradtivos.setForeground(new java.awt.Color(0, 102, 102));
         btn_administradtivos.setText("Administraativos");
         btn_administradtivos.setBorderPainted(false);
+        btn_administradtivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_administradtivosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -115,6 +131,8 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         btn_autos.getAccessibleContext().setAccessibleName("btn_auto");
 
+        DPVistas.setPreferredSize(new java.awt.Dimension(705, 370));
+
         javax.swing.GroupLayout DPVistasLayout = new javax.swing.GroupLayout(DPVistas);
         DPVistas.setLayout(DPVistasLayout);
         DPVistasLayout.setHorizontalGroup(
@@ -123,7 +141,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         );
         DPVistasLayout.setVerticalGroup(
             DPVistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 379, Short.MAX_VALUE)
+            .addGap(0, 370, Short.MAX_VALUE)
         );
 
         jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -180,6 +198,30 @@ public class VentanaInicio extends javax.swing.JFrame {
        DPVistas.add(IF);
        IF.setVisible(true);
     }//GEN-LAST:event_btn_instructoresActionPerformed
+
+    private void btn_leccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_leccionActionPerformed
+        // TODO add your handling code here:
+        limpiarDesktopPane();
+        IF_NoDisponible IF = new IF_NoDisponible();
+       DPVistas.add(IF);
+       IF.setVisible(true);
+    }//GEN-LAST:event_btn_leccionActionPerformed
+
+    private void btn_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clienteActionPerformed
+        // TODO add your handling code here:
+        limpiarDesktopPane();
+        IF_NoDisponible IF = new IF_NoDisponible();
+       DPVistas.add(IF);
+       IF.setVisible(true);
+    }//GEN-LAST:event_btn_clienteActionPerformed
+
+    private void btn_administradtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_administradtivosActionPerformed
+        // TODO add your handling code here:
+        limpiarDesktopPane();
+        IF_NoDisponible IF = new IF_NoDisponible();
+       DPVistas.add(IF);
+       IF.setVisible(true);
+    }//GEN-LAST:event_btn_administradtivosActionPerformed
 
     /**
      * @param args the command line arguments
