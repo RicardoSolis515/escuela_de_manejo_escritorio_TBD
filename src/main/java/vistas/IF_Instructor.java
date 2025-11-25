@@ -28,7 +28,9 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
         
         initComponents();
         
+        rb_NSS.setSelected(true);
         generarDatosInstructores();
+        
     }
 
     /**
@@ -40,12 +42,17 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaInstructoresVista = new javax.swing.JTable();
         btn_agregar = new javax.swing.JButton();
         campo_busqueda = new javax.swing.JTextField();
         txt_campoBusqueda = new javax.swing.JLabel();
         btn_simplificar = new javax.swing.JButton();
+        rb_NSS = new javax.swing.JRadioButton();
+        rb_nombre = new javax.swing.JRadioButton();
+        caja_senior = new javax.swing.JComboBox<>();
+        txt_senior = new javax.swing.JLabel();
 
         setBorder(null);
         setMinimumSize(new java.awt.Dimension(660, 370));
@@ -62,6 +69,11 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaInstructoresVista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tablaInstructoresVistaMouseReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaInstructoresVista);
 
         btn_agregar.setText("Nuevo");
@@ -89,9 +101,19 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
             }
         });
 
-        txt_campoBusqueda.setText("Escribe el NSS del empleado a buscar");
+        txt_campoBusqueda.setText("Buscar por: ");
 
         btn_simplificar.setText("Simplificar");
+
+        buttonGroup1.add(rb_NSS);
+        rb_NSS.setText("NSS");
+
+        buttonGroup1.add(rb_nombre);
+        rb_nombre.setText("Nombre");
+
+        caja_senior.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        txt_senior.setText("Senior");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,33 +122,52 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(btn_simplificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_campoBusqueda)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txt_campoBusqueda)
+                        .addGap(18, 18, 18)
+                        .addComponent(rb_NSS)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rb_nombre)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_senior)
+                        .addGap(18, 18, 18)
+                        .addComponent(caja_senior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(campo_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
+                        .addGap(141, 141, 141)
                         .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txt_campoBusqueda)
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(campo_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
+                        .addGap(23, 23, 23)
+                        .addComponent(btn_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                        .addGap(56, 56, 56))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(btn_simplificar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(campo_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btn_simplificar)
+                                    .addComponent(txt_campoBusqueda)
+                                    .addComponent(rb_NSS)
+                                    .addComponent(rb_nombre)
+                                    .addComponent(txt_senior)
+                                    .addComponent(caja_senior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -183,10 +224,17 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
         if(!esNumero(x)||campo_busqueda.getText().length()>=10){
             if(x!=8)
                 evt.consume();
+            else
+                generarDatosInstructores();
         }else{
             generarDatosInstructores();
         }
     }//GEN-LAST:event_campo_busquedaKeyTyped
+
+    private void tablaInstructoresVistaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaInstructoresVistaMouseReleased
+        // TODO add your handling code here:
+        //String a = (String) tablaInstructoresVista.getValueAt(, 0)
+    }//GEN-LAST:event_tablaInstructoresVistaMouseReleased
 
     private boolean esNumero(char a){
         if((a>='0'&&a<='9'))
@@ -289,10 +337,8 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
 
             if (r == JOptionPane.YES_OPTION) {
 
-                // Aquí llamas a tu DAO si lo usas (ejemplo):
-                // instructorDAO.eliminar(nss);
-
-                ((DefaultTableModel) tablaInstructoresVista.getModel()).removeRow(row);
+                new InstructorDAO().eliminarInstructor(nss);
+                generarDatosInstructores();
             }
         })
     );
@@ -302,9 +348,14 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_simplificar;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> caja_senior;
     private javax.swing.JTextField campo_busqueda;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JRadioButton rb_NSS;
+    private javax.swing.JRadioButton rb_nombre;
     private javax.swing.JTable tablaInstructoresVista;
     private javax.swing.JLabel txt_campoBusqueda;
+    private javax.swing.JLabel txt_senior;
     // End of variables declaration//GEN-END:variables
 }

@@ -91,6 +91,11 @@ public class IF_EditarInstructor extends javax.swing.JInternalFrame {
         });
 
         btn_guardar.setText("Guardar");
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
 
         rb_senior.setText("Senior");
 
@@ -200,6 +205,11 @@ public class IF_EditarInstructor extends javax.swing.JInternalFrame {
         window.dispose();
     }
     }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn_guardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

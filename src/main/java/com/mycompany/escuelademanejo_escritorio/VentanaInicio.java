@@ -44,12 +44,19 @@ public class VentanaInicio extends javax.swing.JFrame {
         btn_cliente = new javax.swing.JButton();
         btn_administradtivos = new javax.swing.JButton();
         DPVistas = new javax.swing.JDesktopPane();
+        sp = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
+        setResizable(false);
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 255));
+        jDesktopPane1.setBackground(new java.awt.Color(102, 102, 102));
+        jDesktopPane1.setForeground(new java.awt.Color(0, 0, 0));
 
-        btn_autos.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+
+        btn_autos.setBackground(new java.awt.Color(0, 204, 204));
         btn_autos.setForeground(new java.awt.Color(0, 102, 102));
         btn_autos.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-auto-16.png")); // NOI18N
         btn_autos.setText("Autos");
@@ -60,7 +67,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
         });
 
-        btn_instructores.setBackground(new java.awt.Color(153, 255, 255));
+        btn_instructores.setBackground(new java.awt.Color(0, 204, 204));
         btn_instructores.setForeground(new java.awt.Color(0, 102, 102));
         btn_instructores.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-formación-16.png")); // NOI18N
         btn_instructores.setText("Instructores");
@@ -71,7 +78,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
         });
 
-        btn_leccion.setBackground(new java.awt.Color(153, 255, 255));
+        btn_leccion.setBackground(new java.awt.Color(0, 204, 204));
         btn_leccion.setForeground(new java.awt.Color(0, 102, 102));
         btn_leccion.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-lección-16.png")); // NOI18N
         btn_leccion.setText("Lecciones");
@@ -82,7 +89,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
         });
 
-        btn_cliente.setBackground(new java.awt.Color(153, 255, 255));
+        btn_cliente.setBackground(new java.awt.Color(0, 204, 204));
         btn_cliente.setForeground(new java.awt.Color(0, 102, 102));
         btn_cliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-estudiante-16.png")); // NOI18N
         btn_cliente.setText("Clientes");
@@ -93,7 +100,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
         });
 
-        btn_administradtivos.setBackground(new java.awt.Color(153, 255, 255));
+        btn_administradtivos.setBackground(new java.awt.Color(0, 204, 204));
         btn_administradtivos.setForeground(new java.awt.Color(0, 102, 102));
         btn_administradtivos.setText("Administraativos");
         btn_administradtivos.setBorderPainted(false);
@@ -116,7 +123,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(16, 16, 16)
                 .addComponent(btn_autos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_instructores, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,26 +133,44 @@ public class VentanaInicio extends javax.swing.JFrame {
                 .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_administradtivos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         btn_autos.getAccessibleContext().setAccessibleName("btn_auto");
 
         DPVistas.setPreferredSize(new java.awt.Dimension(705, 370));
 
+        DPVistas.setLayer(sp, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout DPVistasLayout = new javax.swing.GroupLayout(DPVistas);
         DPVistas.setLayout(DPVistasLayout);
         DPVistasLayout.setHorizontalGroup(
             DPVistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 705, Short.MAX_VALUE)
+            .addComponent(sp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
         );
         DPVistasLayout.setVerticalGroup(
             DPVistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DPVistasLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(sp, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 76, Short.MAX_VALUE)
         );
 
         jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(DPVistas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -155,13 +180,16 @@ public class VentanaInicio extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DPVistas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(DPVistas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DPVistas, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -179,23 +207,26 @@ public class VentanaInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void limpiarDesktopPane() {
-        DPVistas.removeAll();      // Quita todo
-        DPVistas.repaint();        // Redibuja el área
+        sp.removeAll();      // Quita todo
+        sp.repaint();        // Redibuja el área
     }
     
     private void btn_autosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_autosActionPerformed
         limpiarDesktopPane();
         IF_Auto IF = new IF_Auto();
-        DPVistas.add(IF);
+        sp.add(IF);
         IF.setVisible(true);
-        
+        IF.setSize(sp.getWidth(), sp.getHeight());
+
         
     }//GEN-LAST:event_btn_autosActionPerformed
 
     private void btn_instructoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_instructoresActionPerformed
        limpiarDesktopPane();
         IF_Instructor IF = new IF_Instructor();
-       DPVistas.add(IF);
+       sp.add(IF);
+       IF.setSize(sp.getWidth(), sp.getHeight());
+
        IF.setVisible(true);
     }//GEN-LAST:event_btn_instructoresActionPerformed
 
@@ -203,7 +234,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarDesktopPane();
         IF_NoDisponible IF = new IF_NoDisponible();
-       DPVistas.add(IF);
+       sp.add(IF);
        IF.setVisible(true);
     }//GEN-LAST:event_btn_leccionActionPerformed
 
@@ -211,7 +242,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarDesktopPane();
         IF_NoDisponible IF = new IF_NoDisponible();
-       DPVistas.add(IF);
+       sp.add(IF);
        IF.setVisible(true);
     }//GEN-LAST:event_btn_clienteActionPerformed
 
@@ -219,7 +250,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarDesktopPane();
         IF_NoDisponible IF = new IF_NoDisponible();
-       DPVistas.add(IF);
+       sp.add(IF);
        IF.setVisible(true);
     }//GEN-LAST:event_btn_administradtivosActionPerformed
 
@@ -262,6 +293,8 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JButton btn_instructores;
     private javax.swing.JButton btn_leccion;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane sp;
     // End of variables declaration//GEN-END:variables
 }

@@ -84,6 +84,11 @@ public class IF_AgregarInstructor extends javax.swing.JInternalFrame {
         });
 
         btn_guardar.setText("Guardar");
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
 
         rb_senior.setText("Senior");
 
@@ -212,6 +217,10 @@ public class IF_AgregarInstructor extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_campo_nssKeyReleased
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_guardarActionPerformed
 
     private boolean limite(){
         if(campo_nss.getText().length()==10){
