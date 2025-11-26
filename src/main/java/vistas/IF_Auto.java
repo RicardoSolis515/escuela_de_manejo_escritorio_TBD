@@ -26,6 +26,10 @@ public class IF_Auto extends javax.swing.JInternalFrame {
     public IF_Auto() {
         initComponents();
         rb_matricula.setSelected(true);
+        caja_asignado.removeAllItems();
+        caja_asignado.addItem("TODOS");
+        caja_asignado.addItem("Asignados");
+        caja_asignado.addItem("Sin asignar");
         generarDatosAutos();
     }
 
@@ -50,6 +54,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         btn_simplificar = new javax.swing.JButton();
         txt_filtro = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 153, 153));
         setBorder(null);
         setPreferredSize(new java.awt.Dimension(660, 370));
 
@@ -75,16 +80,42 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         });
 
         campo_filtro.setColumns(15);
+        campo_filtro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campo_filtroKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campo_filtroKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campo_filtroKeyTyped(evt);
+            }
+        });
 
         buttonGroup1.add(rb_matricula);
         rb_matricula.setText("Matricula");
+        rb_matricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_matriculaActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(rb_marca);
         rb_marca.setText("Marca");
+        rb_marca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_marcaActionPerformed(evt);
+            }
+        });
 
         txt_asignado.setText("Asignado");
 
         caja_asignado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        caja_asignado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caja_asignadoActionPerformed(evt);
+            }
+        });
 
         btn_simplificar.setText("Simplificar");
 
@@ -113,7 +144,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
                                 .addComponent(txt_asignado)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(caja_asignado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -157,8 +188,63 @@ public class IF_Auto extends javax.swing.JInternalFrame {
             generarDatosAutos();
     }//GEN-LAST:event_btn_agregarActionPerformed
 
+    private void campo_filtroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_filtroKeyPressed
+        // TODO add your handling code here:
+        if(valido(evt.getKeyChar()))
+            generarDatosAutos();
+        else
+            evt.consume();
+    }//GEN-LAST:event_campo_filtroKeyPressed
+
+    private void campo_filtroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_filtroKeyReleased
+        // TODO add your handling code here:
+        if(valido(evt.getKeyChar()))
+            generarDatosAutos();
+        else
+            evt.consume();
+    }//GEN-LAST:event_campo_filtroKeyReleased
+
+    private void campo_filtroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_filtroKeyTyped
+        // TODO add your handling code here:
+        if(valido(evt.getKeyChar())){
+            
+            generarDatosAutos();
+        }else
+            evt.consume();
+    }//GEN-LAST:event_campo_filtroKeyTyped
+
+    private void caja_asignadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caja_asignadoActionPerformed
+        // TODO add your handling code here:
+        generarDatosAutos();
+    }//GEN-LAST:event_caja_asignadoActionPerformed
+
+    private void rb_marcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_marcaActionPerformed
+        // TODO add your handling code here:
+        generarDatosAutos();
+    }//GEN-LAST:event_rb_marcaActionPerformed
+
+    private void rb_matriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_matriculaActionPerformed
+        // TODO add your handling code here:
+        generarDatosAutos();
+    }//GEN-LAST:event_rb_matriculaActionPerformed
+
     
-    
+    public boolean valido(char x){
+        //if(campo_filtro.getText().length()<6){
+            if(x<='9'&&x>='0')
+                return true;
+            if(x<='z'&&x>='a')
+                return true;
+            if(x<='z'&&x>='a')
+                return true;
+            
+        
+        //}
+        if(x==8)
+                return true;
+        
+        return false;
+    }
     
     
     
@@ -170,15 +256,29 @@ public class IF_Auto extends javax.swing.JInternalFrame {
     
     
     public void generarDatosAutos() {
-    String[] columnas = {"Matricula", "Modelo", "Marca", "Asignado","Kilometraje", "Editar", "Eliminar"};
+        campo_filtro.setText(campo_filtro.getText().toUpperCase());
+        String[] columnas = {"Matricula", "Modelo", "Marca", "Asignado","Kilometraje", "Editar", "Eliminar"};
 /*
     Object[][] datos = {
         {"1", "1", "1", "Editar", "Eliminar"},
         {"2", "2", "2", "Editar", "Eliminar"}
     };
 */
-    ArrayList<Auto> autosLista = new AutoDAO().mostrarAutos();
+    int op = caja_asignado.getSelectedIndex();
+    String tipo;
+    if(rb_matricula.isSelected())
+        tipo = "matricula";
+    else
+        tipo = "marca";
     
+    ArrayList<Auto> autosLista;
+    if(op==0){
+    autosLista = new AutoDAO().mostrarAutosFiltro(tipo, campo_filtro.getText());
+    }else if(op==1){
+        autosLista = new AutoDAO().mostrarAutosNoAsignadosFiltro(true,tipo, campo_filtro.getText());
+    }else{
+        autosLista = new AutoDAO().mostrarAutosNoAsignadosFiltro(false,tipo, campo_filtro.getText());
+    }
     ArrayList<Object[]> autosParaMostrar = new ArrayList<Object[]>();
     
     for(Auto e : autosLista){
@@ -228,7 +328,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
 
         // Abrirlo dentro del desktopPane modal
         dialogo.abrirInternalFrame(editar);
-
+        editar.setSize(450,370);
         dialogo.setVisible(true);
         generarDatosAutos();
         })

@@ -23,7 +23,7 @@ public class DialalogEdit extends JDialog {
         escritorio = new JDesktopPane();
         add(escritorio);
 
-        setSize(660, 370);
+        setSize(452, 370);
         setLocationRelativeTo(owner);
     }
 
