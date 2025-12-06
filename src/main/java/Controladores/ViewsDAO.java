@@ -117,6 +117,42 @@ public class ViewsDAO {
 
         return lista;
     }
+    
+    public ArrayList<Historial> obtenerVistaHistorialCompletoFiltro(String filtro) {
+
+    ArrayList<Historial> lista = new ArrayList<>();
+
+    String sql = "SELECT * FROM vista_historial_completo_instructor " +
+                 "WHERE CAST(nss AS TEXT) ILIKE ?";
+
+    ResultSet rs = conexionBD.ejecutarConsultaPreparada(sql, "%" + filtro + "%");
+
+    try {
+        while (rs.next()) {
+            Historial h = new Historial(
+                rs.getInt("id"),
+                rs.getString("fecha_cambio"),
+                rs.getString("nss"),
+                rs.getString("nombre"),
+                rs.getString("apellidopaterno"),
+                rs.getString("apellidomaterno"),
+                rs.getString("vehiculo_anterior"),
+                rs.getString("marca_anterior"),
+                rs.getString("modelo_anterior"),
+                rs.getString("vehiculo_nuevo"),
+                rs.getString("marca_nueva"),
+                rs.getString("modelo_nuevo")
+            );
+            lista.add(h);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return lista;
+}
+
+
 }
 
 

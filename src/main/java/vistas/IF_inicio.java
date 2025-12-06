@@ -50,6 +50,11 @@ public class IF_inicio extends javax.swing.JInternalFrame {
         });
 
         view_historial_instructor.setText("Historial de autos usados");
+        view_historial_instructor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                view_historial_instructorActionPerformed(evt);
+            }
+        });
 
         btn_procedure_aumento_km.setText("jButton3");
 
@@ -132,6 +137,15 @@ public class IF_inicio extends javax.swing.JInternalFrame {
          IF.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_btn_view_instructor_autoActionPerformed
+
+    private void view_historial_instructorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_historial_instructorActionPerformed
+        // TODO add your handling code here:
+        IF_view_historial IF = new IF_view_historial(sp);
+        sp.add(IF);
+        IF.setSize(sp.getWidth(), sp.getHeight());
+         IF.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_view_historial_instructorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
