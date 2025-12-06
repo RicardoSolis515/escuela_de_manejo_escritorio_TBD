@@ -8,6 +8,7 @@ import java.awt.Point;
 import vistas.IF_Auto;
 import vistas.IF_Instructor;
 import vistas.IF_NoDisponible;
+import vistas.IF_inicio;
 
 
 
@@ -24,6 +25,12 @@ public class VentanaInicio extends javax.swing.JFrame {
      */
     public VentanaInicio() {
         initComponents();
+        limpiarDesktopPane();
+        
+        IF_inicio IF = new IF_inicio(sp);
+        sp.add(IF);
+         IF.setSize(sp.getWidth(), sp.getHeight());
+         IF.setVisible(true);
     }
     
 
@@ -43,6 +50,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         btn_leccion = new javax.swing.JButton();
         btn_cliente = new javax.swing.JButton();
         btn_administradtivos = new javax.swing.JButton();
+        btn_inicio = new javax.swing.JButton();
         DPVistas = new javax.swing.JDesktopPane();
         sp = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
@@ -110,6 +118,16 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
         });
 
+        btn_inicio.setBackground(new java.awt.Color(0, 204, 204));
+        btn_inicio.setForeground(new java.awt.Color(0, 102, 102));
+        btn_inicio.setText("Inicio");
+        btn_inicio.setBorderPainted(false);
+        btn_inicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_inicioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -118,12 +136,18 @@ public class VentanaInicio extends javax.swing.JFrame {
             .addComponent(btn_instructores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_leccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_cliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_administradtivos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+            .addComponent(btn_administradtivos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
+                .addComponent(btn_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_autos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_instructores, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,7 +157,7 @@ public class VentanaInicio extends javax.swing.JFrame {
                 .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_administradtivos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         btn_autos.getAccessibleContext().setAccessibleName("btn_auto");
@@ -150,7 +174,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         DPVistas.setLayout(DPVistasLayout);
         DPVistasLayout.setHorizontalGroup(
             DPVistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sp, javax.swing.GroupLayout.DEFAULT_SIZE, 851, Short.MAX_VALUE)
+            .addComponent(sp, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
         );
         DPVistasLayout.setVerticalGroup(
             DPVistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +205,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DPVistas, javax.swing.GroupLayout.DEFAULT_SIZE, 851, Short.MAX_VALUE)
+                .addComponent(DPVistas, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -257,6 +281,15 @@ public class VentanaInicio extends javax.swing.JFrame {
        IF.setVisible(true);
     }//GEN-LAST:event_btn_administradtivosActionPerformed
 
+    private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
+        // TODO add your handling code here:
+        limpiarDesktopPane();
+        IF_inicio IF = new IF_inicio(sp);
+       sp.add(IF);
+       IF.setSize(sp.getWidth(), sp.getHeight());
+         IF.setVisible(true);
+    }//GEN-LAST:event_btn_inicioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -293,6 +326,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JButton btn_administradtivos;
     private javax.swing.JButton btn_autos;
     private javax.swing.JButton btn_cliente;
+    private javax.swing.JButton btn_inicio;
     private javax.swing.JButton btn_instructores;
     private javax.swing.JButton btn_leccion;
     private javax.swing.JDesktopPane jDesktopPane1;

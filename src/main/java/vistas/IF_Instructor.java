@@ -29,6 +29,11 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
         initComponents();
         
         rb_NSS.setSelected(true);
+        caja_senior.removeAllItems();
+        caja_senior.addItem("Todos");
+        caja_senior.addItem("Seniors");
+        caja_senior.addItem("No seniors");
+        
         generarDatosInstructores();
         
     }

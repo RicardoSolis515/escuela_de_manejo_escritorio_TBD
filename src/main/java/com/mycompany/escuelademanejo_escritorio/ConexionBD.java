@@ -99,4 +99,21 @@ public class ConexionBD {
             return false; // Credenciales incorrectas
         }
     }
+    
+    public ResultSet ejecutarConsultaPreparada(String sql, Object... parametros) {
+
+    try {
+        PreparedStatement ps = conexion.prepareStatement(sql);
+
+        for (int i = 0; i < parametros.length; i++) {
+            ps.setObject(i + 1, parametros[i]);
+        }
+
+        return ps.executeQuery();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return null;
+    }
+}
 }
