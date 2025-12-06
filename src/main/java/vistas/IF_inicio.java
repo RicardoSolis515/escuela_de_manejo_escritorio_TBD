@@ -131,7 +131,16 @@ public class IF_inicio extends javax.swing.JInternalFrame {
 
     private void btn_procedure_intercambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_procedure_intercambioActionPerformed
         // TODO add your handling code here:
-        
+        DialalogEdit dialogo = new DialalogEdit(
+                (JFrame) SwingUtilities.getWindowAncestor(this),
+                650
+            );
+
+            // Crear ventana interna para editar instructor
+            IF_intercambio_auto ventana = new IF_intercambio_auto();
+
+            dialogo.abrirInternalFrame(ventana);
+            dialogo.setVisible(true);
         
     }//GEN-LAST:event_btn_procedure_intercambioActionPerformed
 
