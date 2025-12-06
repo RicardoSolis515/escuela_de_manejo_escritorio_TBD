@@ -5,7 +5,9 @@
 package vistas;
 
 import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 import javax.swing.plaf.DesktopPaneUI;
 
 /**
@@ -56,9 +58,14 @@ public class IF_inicio extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_procedure_aumento_km.setText("jButton3");
+        btn_procedure_aumento_km.setText("Registrar aumento de km");
+        btn_procedure_aumento_km.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_procedure_aumento_kmActionPerformed(evt);
+            }
+        });
 
-        btn_procedure_intercambio.setText("jButton4");
+        btn_procedure_intercambio.setText("Intercambiar autos de instructores");
         btn_procedure_intercambio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_procedure_intercambioActionPerformed(evt);
@@ -83,9 +90,8 @@ public class IF_inicio extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(177, 177, 177)
                         .addComponent(btn_generar_documento)
-                        .addGap(174, 174, 174)
-                        .addComponent(btn_grafica)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(184, 184, 184)
+                        .addComponent(btn_grafica))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(view_historial_instructor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -94,11 +100,11 @@ public class IF_inicio extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_procedure_intercambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_procedure_aumento_km, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_function_autos_disponibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_function_encontrar_instructor, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(220, 220, 220))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_function_encontrar_instructor, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_function_autos_disponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,6 +152,20 @@ public class IF_inicio extends javax.swing.JInternalFrame {
          IF.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_view_historial_instructorActionPerformed
+
+    private void btn_procedure_aumento_kmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_procedure_aumento_kmActionPerformed
+        // TODO add your handling code here:
+        DialalogEdit dialogo = new DialalogEdit(
+                (JFrame) SwingUtilities.getWindowAncestor(this),
+                650
+            );
+
+            // Crear ventana interna para editar instructor
+            IF_registrar_aumento_km ventana = new IF_registrar_aumento_km();
+
+            dialogo.abrirInternalFrame(ventana);
+            dialogo.setVisible(true);
+    }//GEN-LAST:event_btn_procedure_aumento_kmActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

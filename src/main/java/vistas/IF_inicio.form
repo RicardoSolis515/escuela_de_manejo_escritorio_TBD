@@ -25,9 +25,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
                       <Component id="btn_generar_documento" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                       <Component id="btn_grafica" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="164" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -39,14 +38,14 @@
                           <Component id="btn_procedure_intercambio" max="32767" attributes="0"/>
                           <Component id="btn_procedure_aumento_km" min="-2" pref="221" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btn_function_autos_disponibles" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btn_function_encontrar_instructor" min="-2" pref="206" max="-2" attributes="0"/>
+                          <Component id="btn_function_autos_disponibles" min="-2" pref="206" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
+              <EmptySpace pref="195" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,12 +93,15 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_procedure_aumento_km">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton3"/>
+        <Property name="text" type="java.lang.String" value="Registrar aumento de km"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_procedure_aumento_kmActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_procedure_intercambio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton4"/>
+        <Property name="text" type="java.lang.String" value="Intercambiar autos de instructores"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_procedure_intercambioActionPerformed"/>

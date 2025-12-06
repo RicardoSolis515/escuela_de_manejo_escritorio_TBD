@@ -1,44 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Controladores;
-
-/**
- *
- * @author Usuario
- */
 
 import com.mycompany.escuelademanejo_escritorio.ConexionBD;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 
-/**
- * DAO para manejar llamadas a PROCEDIMIENTOS almacenados
- */
 public class ProceduresDAO {
 
     ConexionBD conexionBD = ConexionBD.getInstancia();
 
-    // ===================== LLAMAR PROCEDIMIENTO SIN RETORNO =====================
-    public boolean ejecutarProcedure(String nombreProcedure, Object... params) {
-        StringBuilder sql = new StringBuilder("CALL ");
-        sql.append(nombreProcedure).append("(");
+    // ============================================================
+    //  PROCEDIMIENTO 1: registrar_incremento_kilometraje
+    // ============================================================
+    public boolean registrarIncrementoKilometraje(String matricula, int kmAgregados) {
 
-        // Generar ?, ?, ?, ? dinámicamente
-        for (int i = 0; i < params.length; i++) {
-            sql.append("?");
-            if (i < params.length - 1) sql.append(",");
-        }
-        sql.append(")");
+        String sql = "CALL registrar_incremento_kilometraje(?, ?)";
 
         try {
-            CallableStatement cs = conexionBD.getConexion().prepareCall(sql.toString());
-
-            // Asignar parámetros
-            for (int i = 0; i < params.length; i++) {
-                cs.setObject(i + 1, params[i]);
-            }
+            CallableStatement cs = conexionBD.getConexion().prepareCall(sql);
+            cs.setString(1, matricula);
+            cs.setInt(2, kmAgregados);
 
             cs.execute();
             return true;
@@ -48,4 +28,28 @@ public class ProceduresDAO {
             return false;
         }
     }
+
+
+    // ============================================================
+    //  PROCEDIMIENTO 2: intercambiar_autos_instructores
+    // ============================================================
+    public boolean intercambiarAutos(String nss1, String nss2) {
+
+        String sql = "CALL intercambiar_autos_instructores(?, ?)";
+
+        try {
+            CallableStatement cs = conexionBD.getConexion().prepareCall(sql);
+            cs.setString(1, nss1);
+            cs.setString(2, nss2);
+
+            cs.execute();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
+

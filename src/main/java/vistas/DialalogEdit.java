@@ -32,4 +32,15 @@ public class DialalogEdit extends JDialog {
         internal.setVisible(true);
         internal.toFront();
     }
+    
+    public DialalogEdit(JFrame owner,int width) {
+        super(owner, "Editar", true);  // <-- true = MODAL
+
+        escritorio = new JDesktopPane();
+        add(escritorio);
+
+        setSize(width, 370);
+        setLocationRelativeTo(owner);
+    }
+
 }

@@ -118,6 +118,34 @@ public class InstructorDAO {
 
         return i;
     }
+    
+    
+    public Instructor mostrarInstructorMatricula(String matricula) {
+        String sql = "SELECT * FROM instructor WHERE  matriculavehiculo = ?";
+        Instructor i = null;
+
+        try {
+            PreparedStatement ps = conexionBD.getConexion().prepareStatement(sql);
+            ps.setString(1, matricula);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                i = new Instructor(
+                        rs.getString("nss"),
+                        rs.getString("nombre"),
+                        rs.getString("apellidopaterno"),
+                        rs.getString("apellidomaterno"),
+                        rs.getBoolean("senior"),
+                        rs.getString("matriculavehiculo")
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return i;
+    }
 
     // ===================== LISTA COMPLETA =====================
     public ArrayList<Instructor> mostrarInstructores() {
