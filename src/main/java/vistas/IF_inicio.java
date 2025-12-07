@@ -160,7 +160,8 @@ public class IF_inicio extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         DialalogEdit dialogo = new DialalogEdit(
                 (JFrame) SwingUtilities.getWindowAncestor(this),
-                650
+                870,
+                360
             );
 
             // Crear ventana interna para editar instructor
@@ -207,7 +208,8 @@ public class IF_inicio extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         DialalogEdit dialogo = new DialalogEdit(
                 (JFrame) SwingUtilities.getWindowAncestor(this),
-                650
+                425,
+                205
             );
 
             // Crear ventana interna para editar instructor
@@ -221,7 +223,8 @@ public class IF_inicio extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         DialalogEdit dialogo = new DialalogEdit(
                 (JFrame) SwingUtilities.getWindowAncestor(this),
-                650
+                435,
+                325
             );
 
             // Crear ventana interna para editar instructor

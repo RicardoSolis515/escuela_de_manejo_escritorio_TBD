@@ -18,7 +18,7 @@ public class DialalogEdit extends JDialog {
     private JDesktopPane escritorio;
 
     public DialalogEdit(JFrame owner) {
-        super(owner, "Editar", true);  // <-- true = MODAL
+        super(owner, "Editar", true); 
 
         escritorio = new JDesktopPane();
         add(escritorio);
@@ -34,12 +34,22 @@ public class DialalogEdit extends JDialog {
     }
     
     public DialalogEdit(JFrame owner,int width) {
-        super(owner, "Editar", true);  // <-- true = MODAL
+        super(owner, "Editar", true);  
 
         escritorio = new JDesktopPane();
         add(escritorio);
 
         setSize(width, 370);
+        setLocationRelativeTo(owner);
+    }
+    
+    public DialalogEdit(JFrame owner,int width, int height) {
+        super(owner, "Editar", true);  
+
+        escritorio = new JDesktopPane();
+        add(escritorio);
+
+        setSize(width, height);
         setLocationRelativeTo(owner);
     }
 

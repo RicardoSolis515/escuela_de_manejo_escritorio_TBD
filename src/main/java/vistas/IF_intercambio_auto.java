@@ -58,7 +58,7 @@ public class IF_intercambio_auto extends javax.swing.JInternalFrame {
         else if(tabla == 'B')
             lista = new InstructorDAO().mostrarInstructoresFiltro(NSS_B.getText());
 
-    String[] columnas = {"NSS", "Nombre", "Apellido P.", "Apellido M.", "Senior", "Vehículo"};
+    String[] columnas = {"NSS", "Nombre", "Apellido P.", "Apellido M.","Vehículo"};
 
         ArrayList<Object[]> datos = new ArrayList<>();
 
@@ -69,7 +69,6 @@ public class IF_intercambio_auto extends javax.swing.JInternalFrame {
             ins.getNombre(),
             ins.getApellidoPat(),
             ins.getApellidoMat(),
-            ins.isSenior(),
             ins.getMatriculaVehiculo()
         });
     }
@@ -157,7 +156,7 @@ public class IF_intercambio_auto extends javax.swing.JInternalFrame {
         txt_nombre = new javax.swing.JLabel();
         txt_matricula = new javax.swing.JLabel();
 
-        NSS_A.setColumns(5);
+        NSS_A.setColumns(10);
         NSS_A.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 NSS_AKeyPressed(evt);
@@ -170,7 +169,7 @@ public class IF_intercambio_auto extends javax.swing.JInternalFrame {
             }
         });
 
-        NSS_B.setColumns(5);
+        NSS_B.setColumns(10);
         NSS_B.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 NSS_BKeyPressed(evt);
@@ -183,13 +182,13 @@ public class IF_intercambio_auto extends javax.swing.JInternalFrame {
             }
         });
 
-        nombre_B.setColumns(5);
+        nombre_B.setColumns(10);
 
-        nombre_A.setColumns(5);
+        nombre_A.setColumns(10);
 
-        matricula_B.setColumns(5);
+        matricula_B.setColumns(10);
 
-        matricula_A.setColumns(5);
+        matricula_A.setColumns(10);
 
         tabla_instructores_B.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -248,30 +247,33 @@ public class IF_intercambio_auto extends javax.swing.JInternalFrame {
                     .addComponent(nombre_A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(matricula_A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(103, 103, 103)
-                            .addComponent(txt_matricula))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_nombre)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(txt_NSS)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_matricula)
+                            .addComponent(txt_nombre))
+                        .addGap(195, 195, 195))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(txt_NSS)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nombre_B, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NSS_B, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(matricula_B, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(80, 80, 80))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_cancelar)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_intercambiar)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(btn_cancelar))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_intercambiar)
+                        .addGap(158, 158, 158))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,7 +299,7 @@ public class IF_intercambio_auto extends javax.swing.JInternalFrame {
                     .addComponent(btn_intercambiar))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
