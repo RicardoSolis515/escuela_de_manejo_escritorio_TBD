@@ -39,13 +39,13 @@
                           <Component id="btn_procedure_aumento_km" min="-2" pref="221" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btn_function_encontrar_instructor" min="-2" pref="206" max="-2" attributes="0"/>
-                          <Component id="btn_function_autos_disponibles" min="-2" pref="206" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btn_function_encontrar_instructor" pref="216" max="32767" attributes="0"/>
+                          <Component id="btn_function_autos_disponibles" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="195" max="32767" attributes="0"/>
+              <EmptySpace pref="185" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -117,8 +117,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_function_encontrar_instructor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Encontrar un instructor"/>
+        <Property name="text" type="java.lang.String" value="Encontrar responsable de un auto"/>
+        <Property name="actionCommand" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_function_encontrar_instructorActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_generar_documento">
       <Properties>

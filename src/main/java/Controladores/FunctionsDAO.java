@@ -1,5 +1,6 @@
 package Controladores;
 
+import Modelos.Instructor;
 import com.mycompany.escuelademanejo_escritorio.ConexionBD;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,21 +41,34 @@ public class FunctionsDAO {
     // ✔ 2) nombre_instructor_asignado(matricula) → tabla
     //    (name, apellidopaterno, apellidomaterno)
     // =========================================================
-    public ResultSet instructorAsignadoPorMatricula(String matricula) {
+    public Instructor instructorAsignadoPorMatricula(String matricula) {
 
-        String sql = "SELECT * FROM nombre_instructor_asignado(?)";
+    String sql = "SELECT * FROM nombre_instructor_asignado(?)";
 
-        try {
-            PreparedStatement ps = conexionBD.getConexion().prepareStatement(sql);
-            ps.setString(1, matricula);
+    try {
+        PreparedStatement ps = conexionBD.getConexion().prepareStatement(sql);
+        ps.setString(1, matricula);
 
-            return ps.executeQuery(); // devuelve tabla completa
+        ResultSet rs = ps.executeQuery();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (rs.next()) {
+            Instructor inst = new Instructor(
+                    null,
+                rs.getString("name"),
+                rs.getString("apellidopaterno"),
+                rs.getString("apellidomaterno"),
+                    false,
+                    matricula
+            );
+            return inst;
         }
 
-        return null;
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+
+    return null; // no encontró instructor
+}
+
 
 }
