@@ -38,9 +38,43 @@ public class IF_autos_disponibles extends javax.swing.JInternalFrame {
             txt_segerencia.setText("La cantidad de vehiculos es por encima de la recomendada");
         }
         
-        
+        aplicarColores();
     }
     
+    
+    public void aplicarColores() {
+
+    // Colores ya establecidos en el diseño general
+    java.awt.Color fondo = new java.awt.Color(227, 242, 253);       // #E3F2FD
+    java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+    java.awt.Color blanco = java.awt.Color.WHITE;
+
+    // Botones
+    java.awt.Color verde = new java.awt.Color(67, 160, 71);        // #43A047
+    java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122);  // #546E7A
+
+    // Encabezados (si luego agregas tabla)
+    java.awt.Color azulEncabezado = new java.awt.Color(25, 118, 210); // #1976D2
+
+    // --- Aplicación de colores ---
+
+    // Fondo general del InternalFrame
+    this.getContentPane().setBackground(fondo);
+    jPanel1.setBackground(fondo);
+
+    // Textos (los fondos deben respetar el color del panel)
+    txt_cantidad_de_autos.setBackground(fondo);
+    txt_segerencia.setBackground(fondo);
+
+    // Botón Ver -> Verde
+    btn_ver.setBackground(verde);
+    btn_ver.setForeground(blanco);
+
+    // Botón Regresar -> Gris oscuro
+    btn_regresar.setBackground(grisOscuro);
+    btn_regresar.setForeground(blanco);
+}
+
     
 
     /**

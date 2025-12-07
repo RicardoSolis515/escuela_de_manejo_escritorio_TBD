@@ -34,8 +34,74 @@ public class IF_intercambio_auto extends javax.swing.JInternalFrame {
         
         btn_intercambiar.setEnabled(false);
         
-        
+        aplicarColores();
     }
+    
+    public void aplicarColores() {
+
+    // Colores oficiales
+    java.awt.Color fondo = new java.awt.Color(227, 242, 253);        // #E3F2FD
+    java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+    java.awt.Color blanco = java.awt.Color.WHITE;
+
+    // Botones
+    java.awt.Color verde = new java.awt.Color(67, 160, 71);         // #43A047
+    java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122);   // #546E7A
+
+    // Tablas
+    java.awt.Color azulEncabezado = new java.awt.Color(25, 118, 210); // #1976D2
+
+    // ---------------------------
+    //   APLICACIÓN DE COLORES
+    // ---------------------------
+
+    // Fondo general
+    this.getContentPane().setBackground(fondo);
+    jPanel1.setBackground(fondo);
+
+    // Campos de texto
+    NSS_A.setBackground(blanco);
+    NSS_B.setBackground(blanco);
+    nombre_A.setBackground(fondoControles);
+    nombre_B.setBackground(fondoControles);
+    matricula_A.setBackground(fondoControles);
+    matricula_B.setBackground(fondoControles);
+
+    // Labels (respetan el fondo del panel)
+    txt_NSS.setBackground(fondo);
+    txt_nombre.setBackground(fondo);
+    txt_matricula.setBackground(fondo);
+
+    // Botones
+    btn_intercambiar.setBackground(verde);
+    btn_intercambiar.setForeground(blanco);
+
+    btn_cancelar.setBackground(grisOscuro);
+    btn_cancelar.setForeground(blanco);
+
+    // ---------------------------
+    //     Tablas A y B
+    // ---------------------------
+
+    // A
+    tabla_instructores_A.setBackground(blanco);
+    tabla_instructores_A.setForeground(java.awt.Color.BLACK);
+    tabla_instructores_A.getTableHeader().setBackground(azulEncabezado);
+    tabla_instructores_A.getTableHeader().setForeground(blanco);
+    tabla_instructores_A.getTableHeader().setFont(
+            new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12)
+    );
+
+    // B
+    tabla_instructores_B.setBackground(blanco);
+    tabla_instructores_B.setForeground(java.awt.Color.BLACK);
+    tabla_instructores_B.getTableHeader().setBackground(azulEncabezado);
+    tabla_instructores_B.getTableHeader().setForeground(blanco);
+    tabla_instructores_B.getTableHeader().setFont(
+            new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12)
+    );
+}
+
     
     
     

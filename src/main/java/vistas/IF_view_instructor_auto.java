@@ -27,13 +27,74 @@ public class IF_view_instructor_auto extends javax.swing.JInternalFrame {
         this.sp = sp;
         rb_instructor.setSelected(true);
         generarVistaInstructorAuto();
-        filtro_instructor_auto.addKeyListener(new KeyAdapter() {
-        @Override
-        public void keyReleased(KeyEvent e) {
-            generarVistaInstructorAuto();
-            }
-        });
+        
+        
+        aplicarColores();
     }
+    
+    private void aplicarColores() {
+
+    // Fondo general
+    getContentPane().setBackground(new java.awt.Color(245, 245, 245));
+    jPanel1.setBackground(new java.awt.Color(245, 245, 245));
+
+    // Texto
+    txt_filtro.setForeground(new java.awt.Color(30, 30, 30));
+    rb_instructor.setBackground(new java.awt.Color(245, 245, 245));
+    rb_auto.setBackground(new java.awt.Color(245, 245, 245));
+    rb_instructor.setForeground(new java.awt.Color(30, 30, 30));
+    rb_auto.setForeground(new java.awt.Color(30, 30, 30));
+
+    // Campo filtro
+    filtro_instructor_auto.setBackground(java.awt.Color.WHITE);
+    filtro_instructor_auto.setForeground(new java.awt.Color(20, 20, 20));
+    filtro_instructor_auto.setCaretColor(java.awt.Color.BLACK);
+
+    // Botón regresar (rojo)
+    btn_cerrar.setBackground(new java.awt.Color(220, 20, 60));
+    btn_cerrar.setForeground(java.awt.Color.WHITE);
+    btn_cerrar.setFocusPainted(false);
+
+    // Tabla
+    tabla_isntructor_autos.setBackground(java.awt.Color.WHITE);
+    tabla_isntructor_autos.setForeground(java.awt.Color.BLACK);
+    tabla_isntructor_autos.setRowHeight(28);
+
+    // Encabezado tabla
+    tabla_isntructor_autos.getTableHeader().setBackground(new java.awt.Color(50, 50, 50));
+    tabla_isntructor_autos.getTableHeader().setForeground(java.awt.Color.WHITE);
+    tabla_isntructor_autos.getTableHeader().setOpaque(true);
+    tabla_isntructor_autos.getTableHeader().setFont(
+            new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12)
+    );
+
+    // Filas alternadas
+    tabla_isntructor_autos.setDefaultRenderer(Object.class, new javax.swing.table.DefaultTableCellRenderer() {
+        @Override
+        public java.awt.Component getTableCellRendererComponent(
+                javax.swing.JTable table, Object value, boolean isSelected,
+                boolean hasFocus, int row, int column) {
+
+            java.awt.Component c = super.getTableCellRendererComponent(
+                    table, value, isSelected, hasFocus, row, column);
+
+            if (!isSelected) {
+                if (row % 2 == 0) {
+                    c.setBackground(new java.awt.Color(245, 245, 245)); // gris claro
+                } else {
+                    c.setBackground(new java.awt.Color(230, 230, 230)); // gris medio
+                }
+                c.setForeground(new java.awt.Color(20, 20, 20));
+            } else {
+                c.setBackground(new java.awt.Color(100, 149, 237)); // azul selección
+                c.setForeground(java.awt.Color.WHITE);
+            }
+
+            return c;
+        }
+    });
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.

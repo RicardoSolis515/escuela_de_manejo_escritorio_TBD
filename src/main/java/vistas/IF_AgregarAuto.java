@@ -20,7 +20,43 @@ public class IF_AgregarAuto extends javax.swing.JInternalFrame {
      */
     public IF_AgregarAuto() {
         initComponents();
+        aplicarColores();
     }
+    
+    public void aplicarColores() {
+    // Colores principales
+    java.awt.Color fondo = new java.awt.Color(227, 242, 253);        // #E3F2FD
+    java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+    java.awt.Color blanco = java.awt.Color.WHITE;
+
+    // Botones
+    java.awt.Color verde = new java.awt.Color(67, 160, 71);          // #43A047
+    java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122);   // #546E7A
+
+    // Fondo general
+    this.getContentPane().setBackground(fondo);
+
+    // Fondo de campos de texto
+    campo_matricula.setBackground(blanco);
+    campo_marca.setBackground(blanco);
+    campo_modelo.setBackground(blanco);
+    campo_kilometraje.setBackground(blanco);
+
+    // Fondo de labels, si quieres uniformidad (opcional):
+    jLabel1.setBackground(fondoControles);
+    jLabel2.setBackground(fondoControles);
+    jLabel3.setBackground(fondoControles);
+    jLabel4.setBackground(fondoControles);
+
+    // Botones
+    btn_guardar.setBackground(verde);
+    btn_guardar.setForeground(blanco);
+
+    btn_cancelar.setBackground(grisOscuro);
+    btn_cancelar.setForeground(blanco);
+}
+
+    
     
     private Auto validacion() {
 
@@ -38,6 +74,8 @@ public class IF_AgregarAuto extends javax.swing.JInternalFrame {
         );
         return null;
     }
+    
+    
 
     // Verificar longitud mínima de la matrícula
     if (matricula.length() < 6) {

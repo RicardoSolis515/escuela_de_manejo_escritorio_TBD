@@ -273,7 +273,7 @@ public class IF_inicio extends javax.swing.JInternalFrame {
         
         DialalogEdit dialogo = new DialalogEdit(
                 (JFrame) SwingUtilities.getWindowAncestor(this),
-                560,
+                570,
                 360
             );
 

@@ -32,12 +32,62 @@ public class IF_EditarInstructor extends javax.swing.JInternalFrame {
     campo_apellidoPat.setText(ins.getApellidoPat());
     campo_apellidoMat.setText(ins.getApellidoMat());
 
-    // Checkbox / Radio senior
     rb_senior.setSelected(ins.isSenior());
     
         cargarAutosNoAsignados(ins.getMatriculaVehiculo());
-        
+        aplicarColores();
     }
+    
+    public void aplicarColores() {
+
+    // Colores principales
+    java.awt.Color fondo = new java.awt.Color(227, 242, 253);          // #E3F2FD
+    java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+    java.awt.Color blanco = java.awt.Color.WHITE;
+    java.awt.Color textoNegro = java.awt.Color.BLACK;
+
+    // Botones
+    java.awt.Color verde = new java.awt.Color(67, 160, 71);            // #43A047
+    java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122);      // #546E7A
+
+    // Fondo general
+    this.getContentPane().setBackground(fondo);
+
+    // Campos de texto
+    campo_nss.setBackground(blanco);
+    campo_nombre.setBackground(blanco);
+    campo_apellidoPat.setBackground(blanco);
+    campo_apellidoMat.setBackground(blanco);
+
+    campo_nss.setForeground(textoNegro);
+    campo_nombre.setForeground(textoNegro);
+    campo_apellidoPat.setForeground(textoNegro);
+    campo_apellidoMat.setForeground(textoNegro);
+
+    // ComboBox
+    caja_autosDisponibles.setBackground(blanco);
+    caja_autosDisponibles.setForeground(textoNegro);
+
+    // Radio button
+    rb_senior.setBackground(fondoControles);
+    rb_senior.setForeground(textoNegro);
+
+    // Labels
+    txt_nss.setForeground(textoNegro);
+    txt_nombre.setForeground(textoNegro);
+    txt_apellidoPat.setForeground(textoNegro);
+    txt_apellidoMat.setForeground(textoNegro);
+    txt_vehiculo.setForeground(textoNegro);
+
+    // Botón Cancelar
+    btn_cancelar.setBackground(grisOscuro);
+    btn_cancelar.setForeground(blanco);
+
+    // Botón Guardar
+    btn_guardar.setBackground(verde);
+    btn_guardar.setForeground(blanco);
+}
+
     
     
     private void cargarAutosNoAsignados(String matricula) {

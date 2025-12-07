@@ -45,8 +45,64 @@ editor.getTextField().setColumns(4);
 // Ajustar tamaño externo del spinner
 spnr_cantidad.setPreferredSize(new Dimension(80, 28));
 
-
+aplicarColores();
     }
+    public void aplicarColores() {
+
+    // Colores principales
+    java.awt.Color fondo = new java.awt.Color(227, 242, 253);        // #E3F2FD
+    java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+    java.awt.Color blanco = java.awt.Color.WHITE;
+
+    // Botones
+    java.awt.Color verde = new java.awt.Color(67, 160, 71);         // #43A047
+    java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122);   // #546E7A
+
+    // Tabla
+    java.awt.Color azulEncabezado = new java.awt.Color(25, 118, 210); // #1976D2
+
+
+    // -----------------------------
+    //        APLICAR COLORES
+    // -----------------------------
+
+    // Fondo general
+    this.getContentPane().setBackground(fondo);
+    panel.setBackground(fondo);
+
+    // Textfields
+    NSS_instructor.setBackground(fondoControles);
+    nombre_instructor.setBackground(fondoControles);
+    campo_filtro.setBackground(blanco);
+
+    // Spinner
+    spnr_cantidad.getEditor().getComponent(0).setBackground(blanco);
+
+    // Labels (mantienen fondo del panel)
+    txt_instructor.setBackground(fondo);
+    txt_matricula.setBackground(fondo);
+    txt_aumento.setBackground(fondo);
+    txt_nss.setBackground(fondo);
+    txt_nombre.setBackground(fondo);
+
+    // Botones
+    btn_guardar.setBackground(verde);
+    btn_guardar.setForeground(blanco);
+
+    btn_cancelar.setBackground(grisOscuro);
+    btn_cancelar.setForeground(blanco);
+
+    // Tabla
+    tabla_autos.setBackground(blanco);
+    tabla_autos.setForeground(java.awt.Color.BLACK);
+
+    tabla_autos.getTableHeader().setBackground(azulEncabezado);
+    tabla_autos.getTableHeader().setForeground(blanco);
+    tabla_autos.getTableHeader().setFont(
+            new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12)
+    );
+}
+
     
     public void llenar_instructor(){
         String matricula = campo_filtro.getText();
@@ -251,9 +307,9 @@ spnr_cantidad.setPreferredSize(new Dimension(80, 28));
                             .addComponent(txt_nss)
                             .addComponent(txt_nombre))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nombre_instructor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NSS_instructor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nombre_instructor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NSS_instructor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_instructor)))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(31, 31, 31)

@@ -24,7 +24,67 @@ public class IF_view_historial extends javax.swing.JInternalFrame {
         initComponents();
         this.sp = sp;
         generarTabla();
+        aplicarColores();
     }
+    
+    private void aplicarColores() {
+
+    // Fondo general
+    jPanel1.setBackground(new java.awt.Color(245, 245, 245));
+    getContentPane().setBackground(new java.awt.Color(245, 245, 245));
+
+    // Etiquetas
+    txt_filtro.setForeground(new java.awt.Color(30, 30, 30));
+
+    // Campo de texto
+    campo_filtro.setBackground(new java.awt.Color(255, 255, 255));
+    campo_filtro.setForeground(new java.awt.Color(20, 20, 20));
+    campo_filtro.setCaretColor(new java.awt.Color(0, 0, 0));
+
+    // Botón regresar (rojo)
+    btn_regresar.setBackground(new java.awt.Color(220, 20, 60));
+    btn_regresar.setForeground(new java.awt.Color(255, 255, 255));
+    btn_regresar.setFocusPainted(false);
+
+    // Tabla
+    tabla_historial.setBackground(new java.awt.Color(255, 255, 255));
+    tabla_historial.setForeground(new java.awt.Color(0, 0, 0));
+    tabla_historial.setRowHeight(28);
+
+    // Encabezado de tabla
+    tabla_historial.getTableHeader().setBackground(new java.awt.Color(50, 50, 50));
+    tabla_historial.getTableHeader().setForeground(new java.awt.Color(255, 255, 255));
+    tabla_historial.getTableHeader().setOpaque(true);
+
+    // Filas alternadas
+    tabla_historial.setDefaultRenderer(Object.class, new javax.swing.table.DefaultTableCellRenderer() {
+        @Override
+        public java.awt.Component getTableCellRendererComponent(
+                javax.swing.JTable table, Object value, boolean isSelected,
+                boolean hasFocus, int row, int column) {
+
+            java.awt.Component c = super.getTableCellRendererComponent(
+                    table, value, isSelected, hasFocus, row, column);
+
+            if (!isSelected) {
+                if (row % 2 == 0) {
+                    c.setBackground(new java.awt.Color(245, 245, 245));  // gris claro
+                } else {
+                    c.setBackground(new java.awt.Color(230, 230, 230));  // gris un poco más oscuro
+                }
+                c.setForeground(new java.awt.Color(20, 20, 20));
+            } else {
+                c.setBackground(new java.awt.Color(100, 149, 237)); // azul selección
+                c.setForeground(new java.awt.Color(255, 255, 255));
+            }
+
+            return c;
+        }
+    });
+}
+
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

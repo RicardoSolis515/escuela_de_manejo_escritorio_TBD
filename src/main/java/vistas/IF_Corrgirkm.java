@@ -29,7 +29,50 @@ public class IF_Corrgirkm extends javax.swing.JInternalFrame {
     public IF_Corrgirkm() {
         initComponents();
         generarDatosKilometraje();
+        aplicarColores();
     }
+    
+    public void aplicarColores() {
+
+    // Colores principales
+    java.awt.Color fondo = new java.awt.Color(227, 242, 253);          // #E3F2FD
+    java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+    java.awt.Color blanco = java.awt.Color.WHITE;
+    java.awt.Color textoNegro = java.awt.Color.BLACK;
+
+    // Botones
+    java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122);      // #546E7A
+
+    // Tabla
+    java.awt.Color encabezado = new java.awt.Color(25, 118, 210);      // #1976D2
+
+    // Fondo general
+    this.getContentPane().setBackground(fondo);
+
+    // Campo de texto
+    campo_filtro.setBackground(blanco);
+    campo_filtro.setForeground(textoNegro);
+
+    // Label
+    jLabel1.setForeground(textoNegro);
+    jLabel1.setBackground(fondoControles);
+
+    // Botón Cancelar
+    btn_cancelar.setBackground(grisOscuro);
+    btn_cancelar.setForeground(blanco);
+
+    // Tabla
+    tabla_km.setBackground(blanco);
+    tabla_km.setForeground(textoNegro);
+
+    tabla_km.getTableHeader().setBackground(encabezado);
+    tabla_km.getTableHeader().setForeground(blanco);
+    tabla_km.getTableHeader().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
+
+    // Scrollpane (opcional)
+    jScrollPane2.getViewport().setBackground(blanco);
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.

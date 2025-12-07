@@ -26,8 +26,68 @@ public class IF_responsable_de_auto extends javax.swing.JInternalFrame {
     public IF_responsable_de_auto() {
         initComponents();
         generarDatosAutos();
-        
+        aplicarColores();
     }
+    
+    private void aplicarColores() {
+
+    // Fondo general
+    getContentPane().setBackground(new java.awt.Color(245, 245, 245));
+
+    // Etiquetas
+    txt_matricula.setForeground(new java.awt.Color(30, 30, 30));
+
+    // Campo de texto
+    campo_filtro.setBackground(new java.awt.Color(255, 255, 255));
+    campo_filtro.setForeground(new java.awt.Color(20, 20, 20));
+    campo_filtro.setCaretColor(new java.awt.Color(0, 0, 0));
+
+    // Botón Buscar
+    btn_buscar.setBackground(new java.awt.Color(100, 149, 237));
+    btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
+    btn_buscar.setFocusPainted(false);
+
+    // Botón Regresar
+    btn_regresar.setBackground(new java.awt.Color(220, 20, 60));
+    btn_regresar.setForeground(new java.awt.Color(255, 255, 255));
+    btn_regresar.setFocusPainted(false);
+
+    // Tabla
+    tabla_autos.setBackground(new java.awt.Color(255, 255, 255));
+    tabla_autos.setForeground(new java.awt.Color(0, 0, 0));
+    tabla_autos.setRowHeight(25);
+
+    // Encabezado tabla
+    tabla_autos.getTableHeader().setBackground(new java.awt.Color(50, 50, 50));
+    tabla_autos.getTableHeader().setForeground(new java.awt.Color(255, 255, 255));
+    tabla_autos.getTableHeader().setOpaque(true);
+
+    // Alternancia de filas
+    tabla_autos.setDefaultRenderer(Object.class, new javax.swing.table.DefaultTableCellRenderer() {
+        @Override
+        public java.awt.Component getTableCellRendererComponent(
+                javax.swing.JTable table, Object value, boolean isSelected,
+                boolean hasFocus, int row, int column) {
+
+            java.awt.Component c = super.getTableCellRendererComponent(
+                    table, value, isSelected, hasFocus, row, column);
+
+            if (!isSelected) {
+                if (row % 2 == 0) {
+                    c.setBackground(new java.awt.Color(245, 245, 245));
+                } else {
+                    c.setBackground(new java.awt.Color(230, 230, 230));
+                }
+            } else {
+                c.setBackground(new java.awt.Color(100, 149, 237));
+                c.setForeground(new java.awt.Color(255, 255, 255));
+            }
+
+            return c;
+        }
+    });
+}
+
     
     
     public void generarDatosAutos() {

@@ -20,7 +20,54 @@ public class IF_EditarAuto extends javax.swing.JInternalFrame {
      */
     public IF_EditarAuto() {
         initComponents();
+        aplicarColores();
     }
+    
+    public void aplicarColores() {
+
+    // Colores principales
+    java.awt.Color fondo = new java.awt.Color(227, 242, 253);          // #E3F2FD
+    java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+    java.awt.Color blanco = java.awt.Color.WHITE;
+    java.awt.Color textoNegro = java.awt.Color.BLACK;
+
+    // Botones
+    java.awt.Color verde = new java.awt.Color(67, 160, 71);            // #43A047
+    java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122);      // #546E7A
+
+    // Fondo general
+    this.getContentPane().setBackground(fondo);
+
+    // Campos de texto
+    campo_matricula.setBackground(blanco);
+    campo_marca.setBackground(blanco);
+    campo_modelo.setBackground(blanco);
+    campo_kilometraje.setBackground(blanco);
+
+    campo_matricula.setForeground(textoNegro);
+    campo_marca.setForeground(textoNegro);
+    campo_modelo.setForeground(textoNegro);
+    campo_kilometraje.setForeground(textoNegro);
+
+    // Labels
+    jLabel1.setForeground(textoNegro);
+    jLabel2.setForeground(textoNegro);
+    jLabel3.setForeground(textoNegro);
+    jLabel4.setForeground(textoNegro);
+
+    // Radio button
+    rb_asignado.setBackground(fondoControles);
+    rb_asignado.setForeground(textoNegro);
+
+    // Botón Cancelar
+    btn_cancelar.setBackground(grisOscuro);
+    btn_cancelar.setForeground(blanco);
+
+    // Botón Guardar
+    btn_guardar.setBackground(verde);
+    btn_guardar.setForeground(blanco);
+}
+
 
     public IF_EditarAuto(Auto a) {
         initComponents();
@@ -32,6 +79,7 @@ public class IF_EditarAuto extends javax.swing.JInternalFrame {
         campo_kilometraje.setText(""+a.getKilometraje());
         rb_asignado.setSelected(a.isAsignado());
         rb_asignado.setEnabled(false);
+        aplicarColores();
     }
     
     /**
