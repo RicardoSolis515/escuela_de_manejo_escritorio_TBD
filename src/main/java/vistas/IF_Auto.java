@@ -31,6 +31,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         caja_asignado.addItem("Asignados");
         caja_asignado.addItem("Sin asignar");
         generarDatosAutos();
+        aplicarColores();
     }
     
     public IF_Auto(boolean disponibles) {
@@ -44,8 +45,50 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         caja_asignado.setSelectedItem("Sin asignar");
         
         generarDatosAutos();
+        aplicarColores();
         
     }
+    
+    public void aplicarColores() {
+
+    // Color principal de fondo
+    java.awt.Color fondo = new java.awt.Color(227, 242, 253); // #E3F2FD
+    java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+
+    // Botones
+    java.awt.Color verde = new java.awt.Color(67, 160, 71);   // #43A047
+    java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122); // #546E7A
+    java.awt.Color blanco = java.awt.Color.WHITE;
+
+    // Tabla
+    java.awt.Color encabezado = new java.awt.Color(25, 118, 210); // #1976D2
+
+    // Fondo general
+    this.getContentPane().setBackground(fondo);
+
+    // Fondo de elementos
+    rb_matricula.setBackground(fondoControles);
+    rb_marca.setBackground(fondoControles);
+    campo_filtro.setBackground(blanco);
+    caja_asignado.setBackground(blanco);
+
+    // Botón Nuevo
+    btn_agregar.setBackground(verde);
+    btn_agregar.setForeground(blanco);
+
+    // Botón Simplificar
+    btn_simplificar.setBackground(grisOscuro);
+    btn_simplificar.setForeground(blanco);
+
+    // Tabla
+    tablaAutosVista.setBackground(blanco);
+    tablaAutosVista.setForeground(java.awt.Color.BLACK);
+
+    tablaAutosVista.getTableHeader().setBackground(encabezado);
+    tablaAutosVista.getTableHeader().setForeground(blanco);
+    tablaAutosVista.getTableHeader().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,10 +111,11 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         btn_simplificar = new javax.swing.JButton();
         txt_filtro = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(153, 153, 153));
+        setBackground(new java.awt.Color(204, 255, 255));
         setBorder(null);
         setPreferredSize(new java.awt.Dimension(660, 370));
 
+        tablaAutosVista.setBackground(new java.awt.Color(153, 153, 153));
         tablaAutosVista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -86,6 +130,8 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         tablaAutosVista.setPreferredSize(new java.awt.Dimension(700, 500));
         jScrollPane1.setViewportView(tablaAutosVista);
 
+        btn_agregar.setBackground(new java.awt.Color(0, 153, 0));
+        btn_agregar.setForeground(new java.awt.Color(255, 255, 255));
         btn_agregar.setText("Nuevo");
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +152,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
             }
         });
 
+        rb_matricula.setBackground(new java.awt.Color(153, 153, 153));
         buttonGroup1.add(rb_matricula);
         rb_matricula.setText("Matricula");
         rb_matricula.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +161,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
             }
         });
 
+        rb_marca.setBackground(new java.awt.Color(153, 153, 153));
         buttonGroup1.add(rb_marca);
         rb_marca.setText("Marca");
         rb_marca.addActionListener(new java.awt.event.ActionListener() {

@@ -49,6 +49,7 @@ public class IF_inicio extends javax.swing.JInternalFrame {
         btn_function_encontrar_instructor = new javax.swing.JButton();
         btn_generar_documento = new javax.swing.JButton();
         btn_grafica = new javax.swing.JButton();
+        btn_corregirkm = new javax.swing.JButton();
 
         btn_view_instructor_auto.setText("Instructores y sus autos");
         btn_view_instructor_auto.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +108,13 @@ public class IF_inicio extends javax.swing.JInternalFrame {
             }
         });
 
+        btn_corregirkm.setText("Remover registro equivocado");
+        btn_corregirkm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_corregirkmActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,7 +126,9 @@ public class IF_inicio extends javax.swing.JInternalFrame {
                         .addGap(177, 177, 177)
                         .addComponent(btn_generar_documento)
                         .addGap(184, 184, 184)
-                        .addComponent(btn_grafica))
+                        .addComponent(btn_grafica)
+                        .addGap(82, 82, 82)
+                        .addComponent(btn_corregirkm))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(view_historial_instructor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -131,7 +141,7 @@ public class IF_inicio extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_function_encontrar_instructor, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
                             .addComponent(btn_function_autos_disponibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +159,8 @@ public class IF_inicio extends javax.swing.JInternalFrame {
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_grafica)
-                    .addComponent(btn_generar_documento))
+                    .addComponent(btn_generar_documento)
+                    .addComponent(btn_corregirkm))
                 .addContainerGap(113, Short.MAX_VALUE))
         );
 
@@ -257,8 +268,25 @@ public class IF_inicio extends javax.swing.JInternalFrame {
         new generar_grafica().mostrarGrafica();
     }//GEN-LAST:event_btn_graficaActionPerformed
 
+    private void btn_corregirkmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_corregirkmActionPerformed
+        // TODO add your handling code here:
+        
+        DialalogEdit dialogo = new DialalogEdit(
+                (JFrame) SwingUtilities.getWindowAncestor(this),
+                560,
+                360
+            );
+
+            // Crear ventana interna para editar instructor
+            IF_Corrgirkm ventana= new IF_Corrgirkm();
+
+            dialogo.abrirInternalFrame(ventana);
+            dialogo.setVisible(true);
+    }//GEN-LAST:event_btn_corregirkmActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_corregirkm;
     private javax.swing.JButton btn_function_autos_disponibles;
     private javax.swing.JButton btn_function_encontrar_instructor;
     private javax.swing.JButton btn_generar_documento;
