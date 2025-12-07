@@ -5,6 +5,7 @@
 package vistas;
 
 import Controladores.HistorialDAO;
+import Generar.generar_grafica;
 import Generar.generar_pdf;
 import Modelos.Historial;
 import java.util.List;
@@ -99,7 +100,12 @@ public class IF_inicio extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_grafica.setText("jButton8");
+        btn_grafica.setText("Graficar");
+        btn_grafica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_graficaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,6 +248,11 @@ public class IF_inicio extends javax.swing.JInternalFrame {
     e.printStackTrace();
 }
     }//GEN-LAST:event_btn_generar_documentoActionPerformed
+
+    private void btn_graficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficaActionPerformed
+        // TODO add your handling code here:
+        new generar_grafica().mostrarGrafica();
+    }//GEN-LAST:event_btn_graficaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
