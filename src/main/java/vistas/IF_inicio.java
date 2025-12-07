@@ -4,8 +4,13 @@
  */
 package vistas;
 
+import Controladores.HistorialDAO;
+import Generar.generar_pdf;
+import Modelos.Historial;
+import java.util.List;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.plaf.DesktopPaneUI;
@@ -87,7 +92,12 @@ public class IF_inicio extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_generar_documento.setText("jButton7");
+        btn_generar_documento.setText("PDF");
+        btn_generar_documento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_generar_documentoActionPerformed(evt);
+            }
+        });
 
         btn_grafica.setText("jButton8");
 
@@ -215,6 +225,23 @@ public class IF_inicio extends javax.swing.JInternalFrame {
             dialogo.setVisible(true);
         
     }//GEN-LAST:event_btn_function_encontrar_instructorActionPerformed
+
+    private void btn_generar_documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generar_documentoActionPerformed
+        // TODO add your handling code here:
+        
+        List<Historial> lista = new HistorialDAO().obtenerHistorialCompleto();
+
+        generar_pdf.generarHistorialPDF(lista, "historial.pdf");
+
+        JOptionPane.showMessageDialog(this, "Reporte generado: historial.pdf");
+
+        
+        try {
+    java.awt.Desktop.getDesktop().open(new java.io.File("historial.pdf"));
+} catch (Exception e) {
+    e.printStackTrace();
+}
+    }//GEN-LAST:event_btn_generar_documentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

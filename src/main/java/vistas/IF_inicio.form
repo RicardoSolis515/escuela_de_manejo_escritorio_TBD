@@ -126,8 +126,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_generar_documento">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton7"/>
+        <Property name="text" type="java.lang.String" value="PDF"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_generar_documentoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_grafica">
       <Properties>
