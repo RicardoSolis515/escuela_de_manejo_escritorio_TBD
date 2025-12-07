@@ -32,6 +32,20 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         caja_asignado.addItem("Sin asignar");
         generarDatosAutos();
     }
+    
+    public IF_Auto(boolean disponibles) {
+        initComponents();
+        rb_matricula.setSelected(true);
+        caja_asignado.removeAllItems();
+        caja_asignado.addItem("TODOS");
+        caja_asignado.addItem("Asignados");
+        caja_asignado.addItem("Sin asignar");
+        
+        caja_asignado.setSelectedItem("Sin asignar");
+        
+        generarDatosAutos();
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

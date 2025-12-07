@@ -109,12 +109,15 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_function_autos_disponibles">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton5"/>
+        <Property name="text" type="java.lang.String" value="Autos disponibles"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_function_autos_disponiblesActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_function_encontrar_instructor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton6"/>
+        <Property name="text" type="java.lang.String" value="Encontrar un instructor"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn_generar_documento">

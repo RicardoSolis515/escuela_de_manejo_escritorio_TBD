@@ -72,9 +72,14 @@ public class IF_inicio extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_function_autos_disponibles.setText("jButton5");
+        btn_function_autos_disponibles.setText("Autos disponibles");
+        btn_function_autos_disponibles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_function_autos_disponiblesActionPerformed(evt);
+            }
+        });
 
-        btn_function_encontrar_instructor.setText("jButton6");
+        btn_function_encontrar_instructor.setText("Encontrar un instructor");
 
         btn_generar_documento.setText("jButton7");
 
@@ -175,6 +180,20 @@ public class IF_inicio extends javax.swing.JInternalFrame {
             dialogo.abrirInternalFrame(ventana);
             dialogo.setVisible(true);
     }//GEN-LAST:event_btn_procedure_aumento_kmActionPerformed
+
+    private void btn_function_autos_disponiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_function_autos_disponiblesActionPerformed
+        // TODO add your handling code here:
+        DialalogEdit dialogo = new DialalogEdit(
+                (JFrame) SwingUtilities.getWindowAncestor(this),
+                650
+            );
+
+            // Crear ventana interna para editar instructor
+            IF_autos_disponibles ventana = new IF_autos_disponibles(sp);
+
+            dialogo.abrirInternalFrame(ventana);
+            dialogo.setVisible(true);
+    }//GEN-LAST:event_btn_function_autos_disponiblesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
