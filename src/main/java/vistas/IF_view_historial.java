@@ -29,32 +29,49 @@ public class IF_view_historial extends javax.swing.JInternalFrame {
     
     private void aplicarColores() {
 
+    // Colores principales
+    java.awt.Color fondo = new java.awt.Color(227, 242, 253);        // #E3F2FD
+    java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+    java.awt.Color blanco = java.awt.Color.WHITE;
+
+    // Botones
+    java.awt.Color verde = new java.awt.Color(67, 160, 71);         // #43A047
+    java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122);   // #546E7A
+
+    // Tabla
+    java.awt.Color azulEncabezado = new java.awt.Color(25, 118, 210); // #1976D2
+
+    // -----------------------------
+    //        APLICAR COLORES
+    // -----------------------------
+
     // Fondo general
-    jPanel1.setBackground(new java.awt.Color(245, 245, 245));
-    getContentPane().setBackground(new java.awt.Color(245, 245, 245));
+    jPanel1.setBackground(fondo);
+    getContentPane().setBackground(fondo);
 
     // Etiquetas
-    txt_filtro.setForeground(new java.awt.Color(30, 30, 30));
+    txt_filtro.setForeground(java.awt.Color.BLACK);
 
     // Campo de texto
-    campo_filtro.setBackground(new java.awt.Color(255, 255, 255));
-    campo_filtro.setForeground(new java.awt.Color(20, 20, 20));
-    campo_filtro.setCaretColor(new java.awt.Color(0, 0, 0));
+    campo_filtro.setBackground(blanco);
+    campo_filtro.setForeground(java.awt.Color.BLACK);
+    campo_filtro.setCaretColor(java.awt.Color.BLACK);
 
-    // Botón regresar (rojo)
-    btn_regresar.setBackground(new java.awt.Color(220, 20, 60));
-    btn_regresar.setForeground(new java.awt.Color(255, 255, 255));
+    // Botón regresar
+    btn_regresar.setBackground(grisOscuro);
+    btn_regresar.setForeground(blanco);
     btn_regresar.setFocusPainted(false);
 
     // Tabla
-    tabla_historial.setBackground(new java.awt.Color(255, 255, 255));
-    tabla_historial.setForeground(new java.awt.Color(0, 0, 0));
+    tabla_historial.setBackground(blanco);
+    tabla_historial.setForeground(java.awt.Color.BLACK);
     tabla_historial.setRowHeight(28);
 
     // Encabezado de tabla
-    tabla_historial.getTableHeader().setBackground(new java.awt.Color(50, 50, 50));
-    tabla_historial.getTableHeader().setForeground(new java.awt.Color(255, 255, 255));
+    tabla_historial.getTableHeader().setBackground(azulEncabezado);
+    tabla_historial.getTableHeader().setForeground(blanco);
     tabla_historial.getTableHeader().setOpaque(true);
+    tabla_historial.getTableHeader().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
 
     // Filas alternadas
     tabla_historial.setDefaultRenderer(Object.class, new javax.swing.table.DefaultTableCellRenderer() {
@@ -68,20 +85,21 @@ public class IF_view_historial extends javax.swing.JInternalFrame {
 
             if (!isSelected) {
                 if (row % 2 == 0) {
-                    c.setBackground(new java.awt.Color(245, 245, 245));  // gris claro
+                    c.setBackground(fondo);
                 } else {
-                    c.setBackground(new java.awt.Color(230, 230, 230));  // gris un poco más oscuro
+                    c.setBackground(fondoControles);
                 }
-                c.setForeground(new java.awt.Color(20, 20, 20));
+                c.setForeground(java.awt.Color.BLACK);
             } else {
-                c.setBackground(new java.awt.Color(100, 149, 237)); // azul selección
-                c.setForeground(new java.awt.Color(255, 255, 255));
+                c.setBackground(verde);
+                c.setForeground(blanco);
             }
 
             return c;
         }
     });
 }
+
 
     
     

@@ -54,6 +54,8 @@ public class VentanaInicio extends javax.swing.JFrame {
         DPVistas = new javax.swing.JDesktopPane();
         sp = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -110,6 +112,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         btn_administradtivos.setBackground(new java.awt.Color(0, 204, 204));
         btn_administradtivos.setForeground(new java.awt.Color(0, 102, 102));
+        btn_administradtivos.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-antecedentes-conferencia-seleccionada-16.png")); // NOI18N
         btn_administradtivos.setText("Administraativos");
         btn_administradtivos.setBorderPainted(false);
         btn_administradtivos.addActionListener(new java.awt.event.ActionListener() {
@@ -120,6 +123,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         btn_inicio.setBackground(new java.awt.Color(0, 204, 204));
         btn_inicio.setForeground(new java.awt.Color(0, 102, 102));
+        btn_inicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\icons8-casa-16.png")); // NOI18N
         btn_inicio.setText("Inicio");
         btn_inicio.setBorderPainted(false);
         btn_inicio.addActionListener(new java.awt.event.ActionListener() {
@@ -183,15 +187,33 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\logo_edm (1).png")); // NOI18N
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("EasyDrive School of Motoring");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 76, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -330,6 +352,8 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JButton btn_instructores;
     private javax.swing.JButton btn_leccion;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane sp;

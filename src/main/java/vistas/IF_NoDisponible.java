@@ -15,6 +15,17 @@ public class IF_NoDisponible extends javax.swing.JInternalFrame {
      */
     public IF_NoDisponible() {
         initComponents();
+        aplicarColoresNT();
+    }
+    public void aplicarColoresNT() {
+        java.awt.Color crema = new java.awt.Color(255, 252, 245);
+
+        // Fondo verdadero del InternalFrame
+        this.getContentPane().setBackground(crema);
+
+        // Fondo del icono
+        NT_Icon.setBackground(crema);
+        NT_Icon.setOpaque(true);
     }
 
     /**
@@ -28,6 +39,9 @@ public class IF_NoDisponible extends javax.swing.JInternalFrame {
 
         NT_Icon = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        NT_Icon.setBackground(new java.awt.Color(255, 252, 245));
         NT_Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\NT_image-convertido-a-300x370.jpeg")); // NOI18N
         NT_Icon.setPreferredSize(new java.awt.Dimension(630, 425));
 

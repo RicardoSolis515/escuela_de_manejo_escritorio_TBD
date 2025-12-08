@@ -233,7 +233,8 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(this, "No hay vahiculos disponibles para nuevos instructores\nAgrega vehiculos para asignar a instructores nuevos");
         }else{
         DialalogEdit dialogo = new DialalogEdit(
-                (JFrame) SwingUtilities.getWindowAncestor(tablaInstructoresVista)
+                (JFrame) SwingUtilities.getWindowAncestor(tablaInstructoresVista),
+                440,360
             );
 
             // Crear ventana interna para editar instructor
@@ -242,6 +243,7 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
             dialogo.abrirInternalFrame(ventana);
             dialogo.setVisible(true);
                 }
+        generarDatosInstructores();
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     private void campo_busquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_busquedaActionPerformed
@@ -359,7 +361,8 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
 
             // Crear el dialogo modal
             DialalogEdit dialogo = new DialalogEdit(
-                (JFrame) SwingUtilities.getWindowAncestor(tablaInstructoresVista)
+                (JFrame) SwingUtilities.getWindowAncestor(tablaInstructoresVista),
+                    545, 330
             );
 
             // Crear ventana interna para editar instructor
@@ -367,6 +370,7 @@ public class IF_Instructor extends javax.swing.JInternalFrame {
 
             dialogo.abrirInternalFrame(ventana);
             dialogo.setVisible(true);
+            generarDatosInstructores();
         })
     );
 

@@ -34,35 +34,51 @@ public class IF_view_instructor_auto extends javax.swing.JInternalFrame {
     
     private void aplicarColores() {
 
-    // Fondo general
-    getContentPane().setBackground(new java.awt.Color(245, 245, 245));
-    jPanel1.setBackground(new java.awt.Color(245, 245, 245));
+    // Colores principales
+    java.awt.Color fondo = new java.awt.Color(227, 242, 253);        // #E3F2FD
+    java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+    java.awt.Color blanco = java.awt.Color.WHITE;
 
-    // Texto
-    txt_filtro.setForeground(new java.awt.Color(30, 30, 30));
-    rb_instructor.setBackground(new java.awt.Color(245, 245, 245));
-    rb_auto.setBackground(new java.awt.Color(245, 245, 245));
-    rb_instructor.setForeground(new java.awt.Color(30, 30, 30));
-    rb_auto.setForeground(new java.awt.Color(30, 30, 30));
+    // Botones
+    java.awt.Color verde = new java.awt.Color(67, 160, 71);         // #43A047
+    java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122);   // #546E7A
+
+    // Tabla
+    java.awt.Color azulEncabezado = new java.awt.Color(25, 118, 210); // #1976D2
+
+    // -----------------------------
+    //        APLICAR COLORES
+    // -----------------------------
+
+    // Fondo general
+    getContentPane().setBackground(fondo);
+    jPanel1.setBackground(fondo);
+
+    // Texto y radio buttons
+    txt_filtro.setForeground(java.awt.Color.BLACK);
+    rb_instructor.setBackground(fondo);
+    rb_auto.setBackground(fondo);
+    rb_instructor.setForeground(java.awt.Color.BLACK);
+    rb_auto.setForeground(java.awt.Color.BLACK);
 
     // Campo filtro
-    filtro_instructor_auto.setBackground(java.awt.Color.WHITE);
-    filtro_instructor_auto.setForeground(new java.awt.Color(20, 20, 20));
+    filtro_instructor_auto.setBackground(blanco);
+    filtro_instructor_auto.setForeground(java.awt.Color.BLACK);
     filtro_instructor_auto.setCaretColor(java.awt.Color.BLACK);
 
-    // Botón regresar (rojo)
-    btn_cerrar.setBackground(new java.awt.Color(220, 20, 60));
-    btn_cerrar.setForeground(java.awt.Color.WHITE);
+    // Botón cerrar
+    btn_cerrar.setBackground(grisOscuro);
+    btn_cerrar.setForeground(blanco);
     btn_cerrar.setFocusPainted(false);
 
     // Tabla
-    tabla_isntructor_autos.setBackground(java.awt.Color.WHITE);
+    tabla_isntructor_autos.setBackground(blanco);
     tabla_isntructor_autos.setForeground(java.awt.Color.BLACK);
     tabla_isntructor_autos.setRowHeight(28);
 
     // Encabezado tabla
-    tabla_isntructor_autos.getTableHeader().setBackground(new java.awt.Color(50, 50, 50));
-    tabla_isntructor_autos.getTableHeader().setForeground(java.awt.Color.WHITE);
+    tabla_isntructor_autos.getTableHeader().setBackground(azulEncabezado);
+    tabla_isntructor_autos.getTableHeader().setForeground(blanco);
     tabla_isntructor_autos.getTableHeader().setOpaque(true);
     tabla_isntructor_autos.getTableHeader().setFont(
             new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12)
@@ -80,20 +96,21 @@ public class IF_view_instructor_auto extends javax.swing.JInternalFrame {
 
             if (!isSelected) {
                 if (row % 2 == 0) {
-                    c.setBackground(new java.awt.Color(245, 245, 245)); // gris claro
+                    c.setBackground(fondo);
                 } else {
-                    c.setBackground(new java.awt.Color(230, 230, 230)); // gris medio
+                    c.setBackground(fondoControles);
                 }
-                c.setForeground(new java.awt.Color(20, 20, 20));
+                c.setForeground(java.awt.Color.BLACK);
             } else {
-                c.setBackground(new java.awt.Color(100, 149, 237)); // azul selección
-                c.setForeground(java.awt.Color.WHITE);
+                c.setBackground(verde);
+                c.setForeground(blanco);
             }
 
             return c;
         }
     });
 }
+
 
 
     /**
@@ -249,7 +266,7 @@ public class IF_view_instructor_auto extends javax.swing.JInternalFrame {
 
         String tipo;
         if(rb_auto.isSelected())
-            tipo = "matricula";
+            tipo = "auto_matricula";
         else
             tipo = "nss";
         

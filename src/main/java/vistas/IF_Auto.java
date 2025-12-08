@@ -239,7 +239,8 @@ public class IF_Auto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         DialalogEdit dialogo = new DialalogEdit(
-                (JFrame) SwingUtilities.getWindowAncestor(tablaAutosVista)
+                (JFrame) SwingUtilities.getWindowAncestor(tablaAutosVista),
+                485,330
             );
 
             // Crear ventana interna para editar instructor
@@ -319,7 +320,7 @@ public class IF_Auto extends javax.swing.JInternalFrame {
     
     public void generarDatosAutos() {
         campo_filtro.setText(campo_filtro.getText().toUpperCase());
-        String[] columnas = {"Matricula", "Modelo", "Marca", "Asignado","Kilometraje", "Editar", "Eliminar"};
+        String[] columnas = {"Matricula", "Marca", "Modelo", "Asignado","Kilometraje", "Editar", "Eliminar"};
 /*
     Object[][] datos = {
         {"1", "1", "1", "Editar", "Eliminar"},
@@ -407,13 +408,15 @@ public class IF_Auto extends javax.swing.JInternalFrame {
                 JOptionPane.YES_NO_OPTION
             );
 
+            if(new AutoDAO().mostrarAuto(matricula).isAsignado()){
+                JOptionPane.showMessageDialog(this,"Auto asignado a instructor, no se puede eliminar");
+            }else{
+            
             if (r == JOptionPane.YES_OPTION) {
-                // Aquí llamas a tu DAO
-                // autoDAO.eliminar(matricula);
                 new AutoDAO().eliminarAuto(matricula);
-                // Quitar de la tabla
                 ((DefaultTableModel) tablaAutosVista.getModel()).removeRow(row);
                 generarDatosAutos();
+            }
             }
         })
     );

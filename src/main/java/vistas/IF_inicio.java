@@ -8,6 +8,7 @@ import Controladores.HistorialDAO;
 import Generar.generar_grafica;
 import Generar.generar_pdf;
 import Modelos.Historial;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -30,7 +31,50 @@ public class IF_inicio extends javax.swing.JInternalFrame {
     public IF_inicio(JScrollPane sp) {
         initComponents();
         this.sp = sp;
+        aplicarColores();
     }
+    
+    private void aplicarColores() {
+
+    // Fondo general
+    Color fondo = new Color(227, 242, 253);        // #E3F2FD
+    this.getContentPane().setBackground(fondo);
+
+    // Color único para botones
+    Color colorBoton = new Color(96, 125, 139);     // #43A047 (verde)
+    Color blanco = Color.WHITE;
+
+    // Izquierda
+    btn_view_instructor_auto.setBackground(colorBoton);
+    btn_view_instructor_auto.setForeground(blanco);
+
+    view_historial_instructor.setBackground(colorBoton);
+    view_historial_instructor.setForeground(blanco);
+
+    btn_generar_documento.setBackground(colorBoton);
+    btn_generar_documento.setForeground(blanco);
+
+    // Centro
+    btn_procedure_aumento_km.setBackground(colorBoton);
+    btn_procedure_aumento_km.setForeground(blanco);
+
+    btn_procedure_intercambio.setBackground(colorBoton);
+    btn_procedure_intercambio.setForeground(blanco);
+
+    btn_grafica.setBackground(colorBoton);
+    btn_grafica.setForeground(blanco);
+
+    // Derecha
+    btn_function_autos_disponibles.setBackground(colorBoton);
+    btn_function_autos_disponibles.setForeground(blanco);
+
+    btn_function_encontrar_instructor.setBackground(colorBoton);
+    btn_function_encontrar_instructor.setForeground(blanco);
+
+    btn_corregirkm.setBackground(colorBoton);
+    btn_corregirkm.setForeground(blanco);
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,27 +165,21 @@ public class IF_inicio extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(btn_generar_documento)
-                        .addGap(184, 184, 184)
-                        .addComponent(btn_grafica)
-                        .addGap(82, 82, 82)
-                        .addComponent(btn_corregirkm))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(view_historial_instructor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_view_instructor_auto, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_procedure_intercambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_procedure_aumento_km, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_function_encontrar_instructor, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                            .addComponent(btn_function_autos_disponibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_generar_documento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(view_historial_instructor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_view_instructor_auto, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_grafica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_procedure_intercambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_procedure_aumento_km, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_function_encontrar_instructor, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addComponent(btn_function_autos_disponibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_corregirkm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,12 +194,12 @@ public class IF_inicio extends javax.swing.JInternalFrame {
                     .addComponent(view_historial_instructor)
                     .addComponent(btn_procedure_intercambio)
                     .addComponent(btn_function_encontrar_instructor))
-                .addGap(57, 57, 57)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_grafica)
                     .addComponent(btn_generar_documento)
+                    .addComponent(btn_grafica)
                     .addComponent(btn_corregirkm))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         pack();

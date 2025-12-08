@@ -21,33 +21,24 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
-                      <Component id="btn_generar_documento" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
-                      <Component id="btn_grafica" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                      <Component id="btn_corregirkm" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="view_historial_instructor" max="32767" attributes="0"/>
-                          <Component id="btn_view_instructor_auto" min="-2" pref="197" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btn_procedure_intercambio" max="32767" attributes="0"/>
-                          <Component id="btn_procedure_aumento_km" min="-2" pref="221" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btn_function_encontrar_instructor" pref="216" max="32767" attributes="0"/>
-                          <Component id="btn_function_autos_disponibles" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btn_generar_documento" max="32767" attributes="0"/>
+                  <Component id="view_historial_instructor" max="32767" attributes="0"/>
+                  <Component id="btn_view_instructor_auto" pref="197" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="113" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btn_grafica" max="32767" attributes="0"/>
+                  <Component id="btn_procedure_intercambio" max="32767" attributes="0"/>
+                  <Component id="btn_procedure_aumento_km" pref="221" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btn_function_encontrar_instructor" pref="216" max="32767" attributes="0"/>
+                  <Component id="btn_function_autos_disponibles" max="32767" attributes="0"/>
+                  <Component id="btn_corregirkm" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="185" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,13 +57,13 @@
                   <Component id="btn_procedure_intercambio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_function_encontrar_instructor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_grafica" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_generar_documento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_grafica" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_corregirkm" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="113" max="32767" attributes="0"/>
+              <EmptySpace pref="142" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

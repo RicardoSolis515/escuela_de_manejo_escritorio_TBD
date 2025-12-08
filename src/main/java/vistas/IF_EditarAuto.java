@@ -259,7 +259,9 @@ public class IF_EditarAuto extends javax.swing.JInternalFrame {
         kilometraje
     );
     
-    new AutoDAO().editarAuto(auto);
+    new Thread(() -> {
+        new AutoDAO().editarAuto(auto);
+    }).start();
     
     Window window = SwingUtilities.getWindowAncestor(this);
     if (window != null) {

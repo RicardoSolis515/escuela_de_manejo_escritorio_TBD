@@ -5,6 +5,7 @@
 package vistas;
 
 import Controladores.AutoDAO;
+import Controladores.InstructorDAO;
 import Modelos.Auto;
 import Modelos.Instructor;
 import java.awt.Window;
@@ -258,7 +259,34 @@ public class IF_EditarInstructor extends javax.swing.JInternalFrame {
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
         // TODO add your handling code here:
-        
+        String nss = campo_nss.getText();
+        String nombre = campo_nombre.getText();
+    String pat = campo_apellidoPat.getText();
+    String mat = campo_apellidoMat.getText();
+    String matricula = (String) caja_autosDisponibles.getSelectedItem();
+
+    if (nombre.isEmpty() || pat.isEmpty() || mat.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Todos los campos deben estar llenos.",
+            "Error",
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Crear objeto instructor actualizado
+    Instructor ins = new Instructor(nss,nombre,pat,mat,rb_senior.isSelected(),matricula);
+
+    // --- Ejecutar actualización en un hilo ---
+    new Thread(() -> {
+
+        new InstructorDAO().editarInstructor(ins);
+
+    }).start();
+    
+    Window window = SwingUtilities.getWindowAncestor(this);
+    if (window != null) {
+        window.dispose();
+    }
     }//GEN-LAST:event_btn_guardarActionPerformed
 
 

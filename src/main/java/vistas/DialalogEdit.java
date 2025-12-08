@@ -25,6 +25,7 @@ public class DialalogEdit extends JDialog {
 
         setSize(452, 370);
         setLocationRelativeTo(owner);
+        this.setResizable(false);
     }
 
     public void abrirInternalFrame(JInternalFrame internal) {
