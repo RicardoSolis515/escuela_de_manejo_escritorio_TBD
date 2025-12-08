@@ -55,9 +55,9 @@
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                          <EmptySpace pref="13" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="campo_contrasena" pref="100" max="32767" attributes="0"/>
+                              <Component id="campo_contrasena" max="32767" attributes="0"/>
                               <Component id="campo_usuario" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -123,6 +123,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="columns" type="int" value="10"/>
           </Properties>
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="campo_usuario"/>
@@ -136,6 +137,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="columns" type="int" value="10"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_login">

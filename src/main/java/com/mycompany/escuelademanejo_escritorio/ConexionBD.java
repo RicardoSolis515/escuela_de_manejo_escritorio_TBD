@@ -3,7 +3,7 @@ package com.mycompany.escuelademanejo_escritorio;
 import java.sql.*;
 
 public class ConexionBD {
-
+/*
     private static ConexionBD instancia;  // Singleton
 
     private Connection conexion;
@@ -93,7 +93,7 @@ public class ConexionBD {
     public boolean loginAttempt(String user, String password) {
         String URL = "jdbc:postgresql://localhost:5432/db_escuela_manejo";
 
-        try (Connection conn = DriverManager.getConnection(URL, user, password)) {
+        try (Connection conexion = DriverManager.getConnection(URL, user, password)) {
             return true; // Conexión válida
         } catch (SQLException e) {
             return false; // Credenciales incorrectas
@@ -116,4 +116,104 @@ public class ConexionBD {
         return null;
     }
 }
+
+*/
+    
+    
+    
+    private static ConexionBD instancia;  // Singleton
+    private Connection conexion;           // Conexión almacenada en el singleton
+    private Statement stm;
+    private ResultSet rs;
+
+    // Constructor privado
+    private ConexionBD() {
+        // No abrimos la conexión aquí
+    }
+
+    // ============================
+    // Obtener instancia singleton
+    // ============================
+    public static ConexionBD getInstancia() {
+        if (instancia == null) {
+            instancia = new ConexionBD();
+        }
+        return instancia;
+    }
+
+    // ============================
+    // LoginAttempt inicia la conexión
+    // ============================
+    public boolean loginAttempt(String user, String password) {
+        String URL = "jdbc:postgresql://localhost:5432/db_escuela_manejo";
+
+        try {
+            Class.forName("org.postgresql.Driver"); // Opcional en JDBC moderno
+            conexion = DriverManager.getConnection(URL, user, password);
+            System.out.println("Conexión exitosa con usuario: " + user);
+            return true;
+        } catch (ClassNotFoundException e) {
+            System.err.println("Error: Driver de PostgreSQL no encontrado.");
+            e.printStackTrace();
+            return false;
+        } catch (SQLException e) {
+            System.err.println("Error de login: credenciales incorrectas o conexión fallida.");
+            return false;
+        }
+    }
+
+    // ============================
+    // Obtener la conexión
+    // ============================
+    public Connection getConexion() {
+        return conexion;
+    }
+
+    // ============================
+    // Ejecutar LMD (INSERT, UPDATE, DELETE)
+    // ============================
+    public boolean ejecutarInstruccionLMD(String sql) {
+        boolean res = false;
+        try {
+            stm = conexion.createStatement();
+            res = stm.executeUpdate(sql) > 0;
+        } catch (SQLException e) {
+            System.err.println("Error ejecutando instrucción LMD.");
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    // ============================
+    // Ejecutar SELECT
+    // ============================
+    public ResultSet ejecutarIstruccionSQL(String sql) {
+        rs = null;
+        try {
+            stm = conexion.createStatement();
+            rs = stm.executeQuery(sql);
+        } catch (SQLException e) {
+            System.err.println("Error ejecutando instrucción SQL.");
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    // ============================
+    // Consultas preparadas
+    // ============================
+    public ResultSet ejecutarConsultaPreparada(String sql, Object... parametros) {
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            for (int i = 0; i < parametros.length; i++) {
+                ps.setObject(i + 1, parametros[i]);
+            }
+            return ps.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    
 }

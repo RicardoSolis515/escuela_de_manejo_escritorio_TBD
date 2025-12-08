@@ -18,6 +18,41 @@ public class VentanaLogin extends javax.swing.JFrame {
     public VentanaLogin() {
         initComponents();
         setVisible(true);
+        aplicarColores();
+    }
+    
+    private void aplicarColores() {
+        // Colores principales
+        java.awt.Color fondo = new java.awt.Color(227, 242, 253);        // #E3F2FD
+        java.awt.Color fondoControles = new java.awt.Color(207, 216, 220); // #CFD8DC
+        java.awt.Color blanco = java.awt.Color.WHITE;
+
+        // Botones
+        java.awt.Color verde = new java.awt.Color(67, 160, 71);         // #43A047
+        java.awt.Color grisOscuro = new java.awt.Color(84, 110, 122);   // #546E7A
+
+        // Fondo general
+        getContentPane().setBackground(fondo);
+        jPanel1.setBackground(fondo);
+
+        // Labels
+        jLabel1.setBackground(fondo);
+        jLabel1.setForeground(grisOscuro);
+        jLabel2.setBackground(fondo);
+        jLabel2.setForeground(grisOscuro);
+        jLabel3.setBackground(fondo);
+        jLabel3.setForeground(grisOscuro);
+
+        // Campos de texto
+        campo_usuario.setBackground(fondoControles);
+        campo_usuario.setForeground(java.awt.Color.BLACK);
+        campo_contrasena.setBackground(fondoControles);
+        campo_contrasena.setForeground(java.awt.Color.BLACK);
+
+        // Botón login
+        btn_login.setBackground(verde);
+        btn_login.setForeground(blanco);
+        btn_login.setFocusPainted(false);
     }
 
     /**
@@ -51,6 +86,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
 
         campo_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        campo_usuario.setColumns(10);
         campo_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_usuarioActionPerformed(evt);
@@ -58,6 +94,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         });
 
         campo_contrasena.setBackground(new java.awt.Color(255, 255, 255));
+        campo_contrasena.setColumns(10);
 
         btn_login.setBackground(new java.awt.Color(255, 255, 102));
         btn_login.setForeground(new java.awt.Color(0, 0, 0));
@@ -82,9 +119,9 @@ public class VentanaLogin extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campo_contrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(campo_contrasena)
                             .addComponent(campo_usuario))))
                 .addGap(41, 41, 41))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -136,11 +173,26 @@ public class VentanaLogin extends javax.swing.JFrame {
         Debe comprobar usuario y contraseña con la base de datos
         */
         
-        this.dispose();  // Cierra la ventana Login
+        
+        ConexionBD conexion = ConexionBD.getInstancia();
+
+        // Intentar iniciar sesión
+        boolean exito = conexion.loginAttempt(campo_usuario.getText(), campo_contrasena.getText());
+
+        if (exito) {
+            System.out.println("Login exitoso. Ya puedes usar la conexión.");
+            
+            this.dispose();  // Cierra la ventana Login
 
         java.awt.EventQueue.invokeLater(() -> {
         new VentanaInicio().setVisible(true);
         });
+            // Aquí ya puedes usar los demás métodos
+            // ejemplo: conexion.ejecutarInstruccionLMD(...);
+        } else {
+            System.out.println("Usuario o contraseña incorrectos.");
+        }
+        
         
     }//GEN-LAST:event_btn_loginActionPerformed
 
@@ -149,11 +201,7 @@ public class VentanaLogin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

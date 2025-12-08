@@ -286,19 +286,18 @@ public class IF_inicio extends javax.swing.JInternalFrame {
 
     private void btn_generar_documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generar_documentoActionPerformed
         // TODO add your handling code here:
-        
-        List<Historial> lista = new HistorialDAO().obtenerHistorialCompleto();
+        DialalogEdit dialogo = new DialalogEdit(
+                (JFrame) SwingUtilities.getWindowAncestor(this),
+                415,
+                175
+            );
 
-        generar_pdf.generarHistorialPDF(lista, "historial.pdf");
+            // Crear ventana interna para editar instructor
+            IF_filtro_documento ventana= new IF_filtro_documento();
 
-        JOptionPane.showMessageDialog(this, "Reporte generado: historial.pdf");
+            dialogo.abrirInternalFrame(ventana);
+            dialogo.setVisible(true);
 
-        
-        try {
-    java.awt.Desktop.getDesktop().open(new java.io.File("historial.pdf"));
-} catch (Exception e) {
-    e.printStackTrace();
-}
     }//GEN-LAST:event_btn_generar_documentoActionPerformed
 
     private void btn_graficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficaActionPerformed

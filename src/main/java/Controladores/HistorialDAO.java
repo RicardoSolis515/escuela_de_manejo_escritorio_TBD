@@ -47,4 +47,40 @@ public class HistorialDAO {
     }
     
     
+    public ArrayList<Historial> obtenerHistorialFiltrado(String nss) {
+    ArrayList<Historial> lista = new ArrayList<>();
+    String sql = "SELECT * FROM vista_historial_completo_instructor WHERE nss = ? ORDER BY fecha_cambio DESC";
+
+    try (PreparedStatement ps = conexionBD.getConexion().prepareStatement(sql)) {
+        // Setear parámetro
+        ps.setString(1, nss);
+
+        // Ejecutar consulta
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                lista.add(new Historial(
+                    rs.getInt("id"),
+                    rs.getString("fecha_cambio"),
+                    rs.getString("nss"),
+                    rs.getString("nombre"),
+                    rs.getString("apellidopaterno"),
+                    rs.getString("apellidomaterno"),
+                    rs.getString("vehiculo_anterior"),
+                    rs.getString("marca_anterior"),
+                    rs.getString("modelo_anterior"),
+                    rs.getString("vehiculo_nuevo"),
+                    rs.getString("marca_nueva"),
+                    rs.getString("modelo_nuevo")
+                ));
+            }
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return lista;
+}
+
+    
 }
